@@ -1,0 +1,76 @@
+﻿*** Settings ***
+
+Documentation  AF TTT PARIS - New York Long Haul
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-JFK-CDG
+		[Tags]	EBT
+		[Tags]	nightly
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language		English
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	JFK
+		
+		Click next month dep
+		Click next month dep
+		Click next month dep
+		Click last date on dep calendar
+		
+		Click next month rtn
+		Click last date on return calendar
+		Submit Search
+		
+		#eb2
+		Submit Search
+		
+		#ebt45
+		Submit Search
+		
+		#summary
+		#ttt
+		Page Should Contain		0 € per passenger
+		Click TTT add this option
+		Page Should Contain		Option added
+		Click TTT add this option
+		Page Should Contain		0 € per passenger
+		Click TTT add this option
+		Page Should Contain		Option added
+		Submit Search
+
+		
+		#paxdetail page
+		Input LastName	jms	0
+		Input FirstName	jms	0
+		Input telephone	090909009	0
+		Input email	farankhan@mobileaware.com	0
+		Input confirm-email	farankhan@mobileaware.com	0
+		Input dob-date	15	0
+		Select dob-month	January		0
+		Input dob-year	1990	0
+		#Select Gender	Male	0
+		Check termsandcondition
+		Submit Search
+		
+		#Seat Choose page
+		Click seat-choose-dep
+		Click seat-choose-back
+		Page Should Contain		Seats
+		Page Should Contain		Paris - New York
+		Page Should Contain		New York - Paris
+		Page Should Contain		TOTAL INCLUDING TAX
+		Click seat-choose-arr
+		Click seat-choose-back
+		Click Confirm
+		
+		#Payment detail page
+		Page Should Contain		Your reservation

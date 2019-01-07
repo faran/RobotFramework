@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  A test suite with a single test for opening AF home page from HP.
+...            
+Resource       common_resource.txt
+Resource       html_resource.txt
+
+
+*** Test Cases ***
+
+Open AFEBT from HP
+	Start Selenium Server
+		Open EBT from HP
+	Stop Selenium Server

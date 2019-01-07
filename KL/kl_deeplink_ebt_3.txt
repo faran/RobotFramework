@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  KLM EBT Deeplink 3 - Upsell Page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+JFK-AMS-JFK
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		EBT-3

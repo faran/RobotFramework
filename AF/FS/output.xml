@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20120829 11:07:49.184" generator="Robot 2.7.3 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\FS\af_fs_by_destination.txt" id="s1" name="Af Fs By Destination">
+<metadata>
+</metadata>
+<test id="s1-t1" timeout="" name="Flight Status by Detination">
+<kw type="kw" name="af_resource.Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Start Selenium Server" timeout="">
+<doc>Starts the Selenium Server provided with SeleniumLibrary.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20120829 11:07:49.309" level="INFO">Selenium Server started with command "java -jar c:\Python27\lib\site-packages\SeleniumLibrary\lib\selenium-server.jar -port 4444 -userExtensions c:\Python27\lib\site-packages\SeleniumLibrary\lib\user-extensions.js -firefoxProfileTemplate c:\Python27\lib\site-packages\SeleniumLibrary\firefoxprofile"</msg>
+<msg timestamp="20120829 11:07:49.309" html="yes" level="INFO">Selenium server log is written to &lt;a href="file://C:/Users/fkhan/Downloads/afklm-demo/afklm_tests/AF/FS/selenium_server_log.txt"&gt;C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\FS\selenium_server_log.txt&lt;/a&gt;.</msg>
+<status status="PASS" endtime="20120829 11:07:49.309" starttime="20120829 11:07:49.299"></status>
+</kw>
+<status status="PASS" endtime="20120829 11:07:49.310" starttime="20120829 11:07:49.298"></status>
+</kw>
+<kw type="kw" name="af_resource.Open Flight Status" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${AF_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20120829 11:07:52.424" level="INFO">Opening browser 'googlechrome' to base url 'http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone'</msg>
+<status status="PASS" endtime="20120829 11:07:52.424" starttime="20120829 11:07:49.311"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Maximize Browser Window" timeout="">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120829 11:07:52.444" starttime="20120829 11:07:52.424"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//div[@id='nt']/div[3]/a</arg>
+</arguments>
+<msg timestamp="20120829 11:07:53.004" level="INFO">Clicking image 'xpath=//div[@id='nt']/div[3]/a'.</msg>
+<msg timestamp="20120829 11:07:53.004" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20120829 11:07:53.006" level="FAIL">ERROR: Element xpath=//div[@id='nt']/div[3]/a not found</msg>
+<status status="FAIL" endtime="20120829 11:07:53.006" starttime="20120829 11:07:52.444"></status>
+</kw>
+<status status="FAIL" endtime="20120829 11:07:53.007" starttime="20120829 11:07:49.310"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>QReg</tag>
+</tags>
+<status status="FAIL" endtime="20120829 11:07:53.007" critical="yes" starttime="20120829 11:07:49.297">ERROR: Element xpath=//div[@id='nt']/div[3]/a not found</status>
+</test>
+<doc>Flight Status by destination
+</doc>
+<status status="FAIL" endtime="20120829 11:07:53.008" starttime="20120829 11:07:49.184"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">QReg</stat>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Af Fs By Destination">Af Fs By Destination</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

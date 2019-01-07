@@ -1,0 +1,17 @@
+*** Settings ***
+
+Documentation  KLM EBT Deeplink 1 - Calendar Page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+AMS-AUA
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		EBT-1
+				
+		
+		
+		

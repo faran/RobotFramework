@@ -1,0 +1,16 @@
+*** Settings ***
+Library         AppiumLibrary  run_on_failure=Log Source
+
+
+*** Variables ***
+${REMOTE_URL}  http://localhost:4723/wd/hub 
+${PLATFORM_NAME}  iOS
+${PLATFORM_VERSION}  7.0
+${DEVICE_NAME}  iPhone Simulator
+${APP}  YOUR.app
+
+*** Keywords ***
+TestStart
+    [Documentation]  just demo
+    Open Application  ${REMOTE_URL}  ${PLATFORM_NAME}  ${PLATFORM_VERSION}  ${DEVICE_NAME}  ${APP}
+    Capture Page Screenshot

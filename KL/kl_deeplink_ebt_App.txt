@@ -1,0 +1,14 @@
+﻿*** Settings ***
+
+Documentation  KLM EBT Deeplink App
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-JFK
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		EBT-DEEPLINK
+				

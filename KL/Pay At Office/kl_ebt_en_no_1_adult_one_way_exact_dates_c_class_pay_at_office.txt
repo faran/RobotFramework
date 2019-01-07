@@ -1,0 +1,52 @@
+*** Settings ***
+Documentation     KLM EBT - EN_NO - 1 Adult - 1 Way - Exact Dates - C Class - Pay At Office
+Resource          common_resource.txt
+
+*** Test Cases ***
+OLS-MAD
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Norway
+    Click Choose Country Select
+	Select Language    English
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Oslo - Oslo Gardermoen (OSL)
+    Input To    MAD
+	Select One-Way
+    Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+    UnCheck flexible days
+    Select Business
+	Submit Search
+    # Select Flights
+    Submit Search
+    # You Order
+    Submit Search
+    # Pax Detail Page
+    Input FirstName    Johnny	0
+    Input LastName    Shop	0
+    Select Title    Mr	0
+    Input email    farankhan@mobileaware.com
+    Input Confirm Email    farankhan@mobileaware.com
+    Input Tel Number    1234567890
+    Submit Search
+    # Payment Selection
+    Select PAO
+    Submit Search
+    # Review and book
+    Check termsandcondition
+    Submit Search
+    # Confirmation Page
+	Detect PNR
+    Confirm Booking
+	
+

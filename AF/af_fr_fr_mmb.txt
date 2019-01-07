@@ -1,0 +1,27 @@
+﻿*** Settings ***
+
+Documentation  MMB Sanity Check
+...						   
+Resource		common_resource.txt
+
+
+*** Test Cases ***
+MMB-AF
+		[Tags]	  MMB
+		[Tags]	  nightly
+		[Tags]	  Regression
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+		Open MMB from HP
+		Title Should Be		Vos réservations en cours
+		Page Should Contain		Référence de réservation
+		Page Should Contain		Nom de famille
+		Page Should Contain		N° de billet
+		Page Should Contain		Nom de famille
+		Page Should Contain		Identifiant / Email
+		Page Should Contain		Code d'acces /Mot de passe

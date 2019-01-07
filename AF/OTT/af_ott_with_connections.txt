@@ -1,0 +1,20 @@
+*** Settings ***
+
+Documentation  Flight Schedule OTT with connections
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+Flight Schedule OTT
+		
+		Test Setup
+		Open AF HP
+		Open OTT
+		Input From		CDG
+		Input To		NYC
+		Click Confirm
+		Click Week of Day OTT
+		Click New Search OTT
+	

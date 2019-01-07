@@ -1,0 +1,8 @@
+*** Settings ***
+Documentation	AirFrance EBT Test Suite
+Library        SeleniumLibrary
+Suite Setup     Start Selenium Server
+Suite Teardown  Stop Selenium Server
+Force Tags	FReg
+Test Setup	Start Selenium Server
+Test Teardown	Close Browser

@@ -1,0 +1,30 @@
+*** Settings ***
+
+Documentation  This test case book a flight till payments detail page from CDG to AMS with All default options.
+...			   This test has a workflow that is created using keywords from the html_resource file.
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+AF EBT
+	
+
+		Open AF HP
+		Open EBT from HP
+		Input From	CDG
+		Input To	AMS
+		Submit Search
+		
+		Submit Search
+		
+		Submit Search
+		
+		Submit Search
+		
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search

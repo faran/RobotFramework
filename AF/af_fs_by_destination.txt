@@ -1,0 +1,44 @@
+*** Settings ***
+
+Documentation  Flight Status by destination
+...						   
+Resource		common_resource.txt
+
+
+*** Test Cases ***
+CDG-TLS-CDG
+		[Tags]		FS
+		[Tags]		nightly
+		[Tags]	  Regression
+		Test Setup
+		Open Flight Status
+		Set Selenium Speed	5
+		
+		Click Depart-List
+		Select Frame	xpath=//iframe[@id='GB_frame']
+		Select depart-country	France
+		Select depart-airport	Paris, Charles de Gaulle (CDG) - France
+		Cilck Validate
+		
+		Click Arival-List
+		Select Frame	xpath=//iframe[@id='GB_frame']
+		Select ariva-country	France
+		Select ariva-airport	Toulouse, Blagnac (TLS) - France
+		Cilck Validate
+		
+		#Choose arrive
+		
+		Click fssearch
+		
+		#Click first flight flight status
+		
+		#Page Should Contain		Flight status
+		#Page Should Contain		AF7780
+		#Page Should Contain		Departure
+		#Page Should Contain		Paris (CDG)
+		#Page Should Contain		Arrival
+		#Page Should Contain		Toulouse (TLS)
+		
+		
+		
+	

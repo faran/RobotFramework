@@ -1,0 +1,112 @@
+﻿*** Settings ***
+Documentation     fr_FR PAR - JFK - PAR Flexi Date Economy ABA
+Resource          common_resource.txt
+
+*** Test Cases ***
+PAR-JFK-PAR
+	[Tags]	EBT
+	[Tags]	nightly
+	Test Setup
+	Open AF HP
+	Click change country
+	Select Country		France
+	Click Choose Country
+	Select Language    Français
+	Click Choose Language
+	Click Purchase a Ticket
+	Open EBT from HP
+	
+	Input From	PAR
+	Input To	JFK
+		
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+	Check flexible days
+	Click Add PAX
+	Select PAX	Adulte(25 - 64 ans)	1
+	Submit Search
+	
+	#ebt2
+	#Verify EBT2 Dep-Text		Votre vol aller: Paris à New York
+	#Verify EBT2 Ret-Text		Votre vol retour: New York à Paris
+	#Page Should Contain		Montant total TTC pour 2 Adultes
+	Submit Search
+	
+	#ebt4 upsell
+	#Page Should Contain		Paris - New York
+	#Page Should Contain		Votre vol aller:
+	Click Next
+	
+	#ebt5 upsell
+	#Page Should Contain		New York - Paris
+	#Page Should Contain		Votre vol retour:
+	Submit Search
+	
+	#summary page
+	#Page Should Contain		Paris - New York
+	#Page Should Contain		New York - Paris
+	#Page Should Contain		Passagers
+	#Page Should Contain		2 Adultes
+	
+	#Click aba	
+	#Select aba-arr	1 bagage(s) 56 EUR	0
+	#Select aba-arr	1 bagage(s) 56 EUR	1
+	#Click return-tab
+	#Select aba-ret	1 bagage(s) 56 EUR	0
+	#Select aba-ret	1 bagage(s) 56 EUR	1
+	#Click aba-purchase
+	#Page Should Contain		EUR 112 au total pour 2 bagage(s)
+	#Page Should Contain Button	xpath=//input[@value='modifier ou supprimer']
+	Submit Search
+	
+	#paxdetail
+	#Input Fbnumber	2058018534
+	#Input Fbcode	5655
+	#Click login
+	#pax1
+	Select Title	Mlle	0
+	Input LastName    JMS	0
+	Input FirstName   JMS	0
+	Input telephone    090909009	0
+	Input email    farankhan@mobileaware.com	0
+	Input confirm-email    farankhan@mobileaware.com	0
+	Input dob-date	15	0
+	Select dob-month	janvier	0
+	Input dob-year	1990	0
+	#Select Gender	Masculin	0
+	#pax2
+	Select Title	Mme ou Mlle	1
+	Input LastName    JMS	1
+	Input FirstName   JMS	1
+	Input dob-date	15	1
+	Select dob-month	janvier	1
+	Input dob-year	1990	1
+	#Select Gender	Féminin		1
+	Check termsandcondition
+	Submit Search
+	
+	#submit on seat choose page
+	Click Confirm
+	
+	#Page Should Contain		Montant vol(s)
+	#Page Should Contain		Bagage(s) supplémentaire(s)
+	#Page Should Contain		1 bagage(s)
+	#Page Should Contain		Montant à payer
+	#Page Should Contain		56 € 
+	
+	#Payment detail page
+	Select Credit Card
+	Select c-type	Carte VISA
+	Input card-num	4970100000196796
+	Select exp-mon	05 - mai
+	Select exp-year		2028
+	Input crypto		123
+	Input c-lname		test
+	Input c-fname		test
+	Input c-addr	test
+	Input c-poscode	12345
+	Input c-city	test

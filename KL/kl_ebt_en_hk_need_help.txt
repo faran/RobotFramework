@@ -1,0 +1,38 @@
+﻿*** Settings ***
+Documentation     KLM EBT - en_HK - Need Help
+Resource          common_resource.txt
+
+*** Test Cases ***
+AMS-LHR-AMS
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Hong Kong
+    Click Choose Country Select
+    Select Language    English
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Amsterdam - Schiphol (AMS)
+    Input To    LHR
+    Submit Search
+	
+	Click need-help
+	Title Should Be		Contact about flight bookings
+	Page Should Contain		Contact information for KLM Hong Kong
+	
+	Click back-need-help
+	Title Should Be		Book Flight
+	Page Should Contain		Best offer for selected travel dates:
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

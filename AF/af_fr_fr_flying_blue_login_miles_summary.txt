@@ -1,0 +1,36 @@
+﻿*** Settings ***
+
+Documentation  Flying blue Miles summary
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+LIVE-FB
+		Test Setup
+		[Tags]	nightly
+		[Tags]	FB
+		[Tags]	Regression
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+				
+		Open FB from HP
+		Input FBLogin	2101630354
+		Input FBPin		123456
+		Submit log in
+		
+		Click Mileage Summary
+		Title Should Be		Flying Blue
+		Page Should Contain		2101630354
+		
+		Click My Transactions Tab
+		Title Should Be		Flying Blue
+		Page Should Contain List		xpath=//select[@id='selectedTransactionType']
+		Page Should Contain List		xpath=//select[@id='selectedYearType']
+		Click Back to My Profile
+		Title Should Be		Mon profil
+		Page Should Contain		2101630354

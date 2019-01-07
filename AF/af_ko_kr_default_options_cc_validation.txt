@@ -1,0 +1,88 @@
+﻿*** Settings ***
+
+Documentation  South Korea ICN-CDG-ICN  CC Validation
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+ICN-CDG-ICN
+		[Tags]	EBT
+		[Tags]	nightly
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		South Korea
+		Click Choose Country
+		Select Language    한국어
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+				
+		#Input From	JFK
+		Input To	CDG
+		
+		Click next month dep
+		Click last date on dep calendar
+		Click next month rtn
+		Click last date on return calendar
+		Check flexible days
+		Select PAX	성인(18-64세)	0
+		Select Class	프리미엄 이코노미
+		Submit Search
+		
+		#ebt2 select date
+		#Verify EBT2 Dep-Text	가는 항공편: 서울 도착 빠리
+		#Verify EBT2 Ret-Text	오는 항공편: 빠리 도착 서울
+		Submit Search
+		
+		#ebt 45 upsell page
+		#Page Should Contain	출국:
+		#Page Should Contain	서울 - 빠리
+		Click Next
+		
+		#Page Should Contain	귀국:
+		#Page Should Contain	빠리 - 서울
+		Submit Search
+		
+		#summary page ebt6
+		#Page Should Contain	승객수
+		#Page Should Contain	1 성인
+		#Page Should Contain	가는 항공편
+		#Page Should Contain	서울 - 빠리
+		#Page Should Contain	오는 항공편
+		#Page Should Contain	빠리 - 서울
+		Submit Search
+		
+		#paxdetail page
+		Input LastName	jms	0
+		Input FirstName	jms	0
+		Input telephone	090909009	0
+		Input email	farankhan@mobileaware.com	0
+		Input confirm-email	farankhan@mobileaware.com	0
+		Input dob-date	15	0
+		Select dob-month	5월		0
+		Input dob-year	1990	0
+		Select Gender	남성	0
+		Check termsandcondition
+		Submit Search
+		
+		#Seat Choose page
+		Page Should Contain	좌석
+		Click Confirm
+		
+		#Payment detail page
+		#Page Should Contain	총 운임
+		#Page Should Contain	KRW
+		Select Credit Card
+		Select c-type	  비자카드
+		Input card-num	4970100000196796
+		Select exp-mon	05 - 5월
+		Select exp-year		2028
+		Input crypto		123
+		Input c-lname		test
+		Input c-fname		test
+		Input c-addr	test
+		Input c-poscode	12345
+		Input c-city	test
+		#Select State	河北

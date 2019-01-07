@@ -1,0 +1,56 @@
+﻿*** Settings ***
+Documentation     fr_FR PAR - JFK - PAR Flexi Date Economy ABA
+Resource          common_resource.txt
+
+*** Test Cases ***
+PAR-JFK-PAR
+	[Tags]	EBT
+	[Tags]	nightly
+	Test Setup
+	Open AF HP
+	Set Selenium Speed	2
+	Click change country
+	Select Country		France
+	Click Choose Country
+	Select Language    Français
+	Click Choose Language
+	Click Purchase a Ticket
+	Open EBT from HP
+	
+	Input From	PAR
+	Input To	JFK
+		
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+	Check flexible days
+	Click Add PAX
+	Select PAX	Adulte(25 - 64 ans)	1
+	Submit Search
+	
+	#ebt3
+	#Verify EBT2 Dep-Text		Votre vol aller: Paris à New York
+	#Verify EBT2 Ret-Text		Votre vol retour: New York à Paris
+	Page Should Contain		Montant total TTC pour 2 Adultes
+	Submit Search
+	
+	#ebt45 upsell
+	Page Should Contain		Paris - New York
+	Page Should Contain		Votre vol aller:
+	Submit Search
+	
+	#ebt45 upsell
+	#Page Should Contain		New York - Paris
+	#Page Should Contain		Votre vol retour:
+	#Submit Search
+	
+	#summary page
+	#Page Should Contain		Paris - New York
+	#Page Should Contain		New York - Paris
+	#Page Should Contain		Passagers
+	#Page Should Contain		2 Adultes
+	
+	#Click aba

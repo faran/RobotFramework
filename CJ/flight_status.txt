@@ -1,0 +1,17 @@
+*** Settings ***
+
+Documentation  CJ Flight Status
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+DUB-LON
+	Test Setup
+	Open CJ HP
+	Open Flight Status
+	Page Should Contain	London City Airport - Arrivals
+	Page Should Contain	London City Airport - Departures
+	Click Home Header
+	
+	

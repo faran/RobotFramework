@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF EBT Deeplink 3 - Upsell Page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-NCE
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		EBT-3

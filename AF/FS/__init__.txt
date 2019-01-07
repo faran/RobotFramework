@@ -1,0 +1,7 @@
+*** Settings ***
+Documentation	AirFrance Flight Test Suite
+Library        SeleniumLibrary
+Suite Setup     Start Selenium Server
+Suite Teardown  Stop Selenium Server
+Force Tags		FReg
+Test Teardown	Close Browser

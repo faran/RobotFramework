@@ -1,0 +1,664 @@
+﻿﻿*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            for AF. 
+...            common_resource.txt is used to select which one to use.
+
+*** Variables ***
+
+@{countries}=	Argentina	Austria	Belgium	Brazil	Canada	Chile	China	Columbia	Czech Republic	Denmark	French Guiana	French Polynesia	Germany	Greece	Guadeloupe	Hong Kong	Hungary	India	Ireland	Italy	Japan	Lebanon	Martinique	Mexico	Netherlands	New Caledonia - France	Norway	Poland	Portugal	Reunion	Romania	Russia	Saudi Arabia	Singapore	South Africa	South Korea	Spain	Sweden	Switzerland	UK	USA	United Arab Emirates	Venezuela
+${AF_HP}     http://${SERVER}
+${AF_EBT}	 http://${SERVER}/ebt.htm	
+${AF_PROD}	 http://mobile.airfrance.com
+#${AF_EBT}   http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone
+#${AF_EBT}   http://aftest.mobileaware.com/liveaf/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone
+
+${Flight_Number}	0990
+${PNR_Code}	6RF7D3
+${Last_Name}	LY
+${Airline_Code}	AF
+${E-tkt}	057-2327434498
+${FF}	2075592351
+
+*** Keywords ***
+
+Test Setup		Start Selenium Server	-trustAllSSLCertificates
+
+Test Teardown		Close Browser
+
+#-Dhttp.proxyPort=8888-Dhttp.proxyHost=localhost
+
+Random Numbers 
+	${random_numbers} =		Generate Random String	5	[NUMBERS]
+	
+=== AF Deeplinks ===
+
+EBT-1
+	Open Browser	${AF_HP}/ebt.htm?aeroportDepart=LHR&outboundCountry=GB&aeroportArrivee=PAR		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Book Flight
+	Page Should Contain		Find the best price within +/- 3 days
+
+EBT-2
+	${dd} =	Get Time	day		NOW + 1d
+	${rd} =	Get Time	day		NOW + 2d
+	
+	${yyyy}    ${mm} =   GetTime		year,month
+    ${ddate}    Set Variable    ${yyyy}${mm}
+	
+	
+	Open Browser	${AF_HP}/ebt.htm?calendarSearch=0&cabin=Y&ssCabine=MCHER&nbPassenger=1&aeroportDepart=CDG&aeroportArrivee=NCE&moisAller=${ddate}&jourAller=${dd}&moisRetour=${ddate}&jourRetour=${rd}&outboundCountry=FR&heureAller=0&heureRetour=0&typeTrajet=2&paxTypoList=ADT		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Book Flight
+	Page Should Contain		Your return flight: Nice to Paris
+
+EBT-3
+	${dd} =	Get Time	day		NOW + 2d
+	${rd} =	Get Time	day		NOW + 3d
+	
+	${yyyy}    ${mm} =  GetTime		year,month
+    ${ddate}    Set Variable    ${yyyy}${mm}
+	
+	Open Browser	${AF_HP}/ebt.htm?calendarSearch=1&cabin=Y&ssCabine=MCHER&nbPassenger=1&aeroportDepart=CDG&aeroportArrivee=NCE&moisAller=${ddate}&jourAller=${dd}&moisRetour=${ddate}&jourRetour=${rd}&outboundCountry=FR&typeTrajet=2&paxTypoList=ADT		${BROWSER}
+	
+	Maximize Browser Window
+	Title Should Be		Book Flight
+	Page Should Contain		Paris - Nice
+	
+EBT-APP-1
+	${yyyy}    ${mm}    ${dd} =   Get Time	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${AF_HP}/ebtApp.htm?ebtForm1.nbPassenger=1&paxTypoList[0]=ADT&cabin=Y_FLEX&ebtForm1.calendarSearch=true&ebtForm1.departDate=${date}&ebtForm1.returnDate=${date}&ebtForm1.fromAirportCode=CDG&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=2&lang=en_FR	${BROWSER}
+	
+	Maximize Browser Window
+	Title Should Be		Book Flight
+	Page Should Contain		Your departure flight: Paris to New York
+	Page Should Contain		Your return flight: New York to Paris
+	Page Should Contain		Total amount including taxes for 1 Adult
+	
+EBT-APP-2
+	${yyyy}    ${mm}    ${dd} =   Get Time	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${AF_HP}/ebtApp.htm?ebtForm1.nbPassenger=1&paxTypoList[0]=ADT&cabin=Y_FLEX&ebtForm1.calendarSearch=true&ebtForm1.departDate=${date}&ebtForm1.returnDate=${date}&ebtForm1.fromAirportCode=CDG&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=1&lang=en_FR	${BROWSER}
+	
+	Maximize Browser Window
+	Title Should Be		Book Flight
+	Page Should Contain			Your departure flight: Paris to New York
+	Page Should Not Contain		Your return flight: New York to Paris
+	Page Should Contain			Total amount including taxes for 1 Adult
+	
+ICI-PNR
+	Open Browser	${AF_HP}/iciApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Online Check-in
+
+ICI-ET
+	Open Browser	${AF_HP}/iciApp.htm?idType=ET&code=${E-tkt}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Online Check-in
+
+ICI-FF
+	Open Browser	${AF_HP}/iciApp.htm?idType=FFAF&code=${FF}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check-in
+	
+ICI-ABA
+	Open Browser	${AF_HP}/iciAbaApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Online Check-in	
+
+ICI-Seatmap
+	Open Browser	${AF_HP}/iciSeatApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Online Check-in
+
+ICI-Comfort-Seat
+	Open Browser	${AF_HP}/iciComfortSeatApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Online Check-in
+	
+CCI
+	Open Browser	${AF_HP}/iciCancelApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=${Airline_Code}&flightNumber=${Flight_Number}&lastName=${Last_Name}&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Cancel check-in
+	
+minutes
+	${mm} =		Get Time	return min
+	
+	
+FS-1
+	${secs} =   GetTime		epoch
+ 	
+	Open Browser	${AF_HP}/statusApp.htm?origin=CDG&destination=JFK&carrier=AF&lang=en_FR&date=${secs}000&MobileAwareApp=gmaf	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Flight Status
+
+FS-2
+	${secs} =   GetTime		epoch
+	
+	Open Browser	${AF_HP}/statusApp.htm?flightNumber=7780&date=${secs}000&carrier=AF&lang=en_FR&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Flight Status
+
+OTT-1
+	${year} =	Get Time	return year
+	${month} =	Get Time	return month
+	${dday} =	Get Time	day		NOW + 7d
+	${rday} =	Get Time	day		NOW + 8d
+	
+	Open Browser	${AF_HP}/ottApp.htm?from=CDG&to=JFK&tripType=2&departDate.day=${dday}&departDate.yearMonth=${year}${month}&returnDate.day=${rday}&returnDate.yearMonth=${year}${month}&Lang=nl_NL&MobileAwareApp=gmaf	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Flight Schedules
+	Page Should Contain		Departing from:
+	Page Should Contain		Paris, Charles de Gaulle (CDG) - France
+	Page Should Contain		Arriving in:
+	Page Should Contain		New York, John F Kennedy International (JFK) NY - United States of America
+	
+FB-Login
+	Open Browser	${AF_HP}/fb.htm?user=2058018534&pincode=5655&MobileAwareApp=gmaf	${BROWSER}
+	Maximize Browser Window
+	Title Should Be		My profile
+	Page Should Contain		Mr FARAN KHAN
+	
+FB-Logout
+	Open Browser	${AF_HP}/fb2.htm?user=2058018534&pincode=5655&MobileAwareApp=gmaf	${BROWSER}
+	Maximize Browser Window
+	Title Should Be		AF Mobile
+
+FAQ
+	Open Browser	${AF_HP}/faqApp.htm?question.text="where is my baggage"&MobileAwareApp=gmaf		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		FAQ
+	
+=== AF Home Page ===
+
+Open AF HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  Air France Mobile
+
+Click Home from header
+	Click Image		xpath=//a[contains(@href, 'home.htm')]
+	Wait Until Page Loaded
+	
+Select Country	[Arguments]  ${cntry}
+	Select From List	country	${cntry}
+	
+Click Choose Country
+	Click Image		xpath=//form[@id='chooseForm1']/table[2]/tbody/tr[2]/td/input
+	Wait Until Page Loaded
+
+Select Language	[Arguments]  ${lang}
+	Select From List	language	${lang}
+
+Click Choose Language
+	Click Image		xpath=//form[@id='chooseForm2']/table[2]/tbody/tr[2]/td/input
+	Wait Until Page Loaded
+
+Click Choose Country Select
+	Click Image		xpath=//input[@name='submit']
+	Wait Until Page Loaded
+	
+Click Choose Language Select
+	${tit}=	Get Title
+	Run Keyword If	'${tit}' == 'Select your language'		Click Image		xpath=//input[@name='submit']	
+	
+Open EBT from HP
+	#Click Image	xpath=html/body/div[2]/div/div/div/div[6]/div[3]/div/div/div/a
+	Click Image		css=div.af2sub > a.af2
+	Wait Until Page Loaded
+	
+Open FB from HP
+	Click Image	xpath=//div[@id='nt']/div[9]/a
+	Wait Until Page Loaded
+	
+Click Purchase a Ticket
+	Click Image	css=span.af2exbutton		,and don't wait
+	#Click Image	xpath=//div[@id='nt']/div[6]/span
+=== AF FOOTA ===
+Click Sign in
+	Click Link		fb.htm
+
+Click sign out
+	Click Link	fbLogOut.htm
+
+Click change country	
+	Click Link		choose.htm
+
+=== EBT ===
+
+Open AF EBT
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+    Go TO	${AF_EBT}
+	
+Open AF EBT Direct
+	Open Browser  ${AF_EBT}  ${BROWSER}
+	
+Input From  [Arguments]  ${airportFrom}
+    Input Text  from  ${airportFrom}
+
+Input To  [Arguments]  ${airportTo}
+    Input Text  to  ${airportTo}
+
+Choose One-way
+	Select Radio Button		tripType	tripType2
+	
+UnCheck flexible days
+	Unselect Checkbox		xpath=//input[@id='calendarSearch1']
+
+Check flexible days
+	Select Checkbox		xpath=//input[@id='calendarSearch1']
+
+Select Class	[Arguments]  ${class}
+	Select From List	cabin	${class}
+	
+Click Add PAX
+	Click Image	css=img.showInput	,and don't wait
+
+Select PAX  [Arguments]  ${type}	${i}
+    Select From List	paxTypoList${i}	${type}
+	#type can be Adult (15+ year)	Child (2 - 14 year)	Infant (0 -1 year) Adulte(25 - 64 ans)Enfant(2 - 11 ans)Bébé(0 - 1 ans)Etudiant Majeur(25 - 26 ans)Sénior(65 ans et plus)Jeune Majeur(18 - 24 ans)Jeune Mineur(12 - 17 ans)
+
+Submit Search
+    Click Button  submit
+	Wait Until Page Loaded
+
+Click Next
+	Click Image		xpath=//input[@name='next']
+	Wait Until Page Loaded
+	
+	
+Input Fbnumber 	[Arguments]	${fb}
+		Input Text	username	${fb}
+	
+Input Fbcode 	[Arguments]	${fbcode}
+		Input Text	pincode		${fbcode}
+		
+Click login
+    Click Button  login
+	Wait Until Page Loaded
+
+Select Title	[Arguments] 	${title}	${i}
+		Select From List	passengerDetails${i}.title		${title}
+	
+Input LastName	[Arguments]	${lname}	${i}
+		Input Text	passengerDetails[${i}].lastname	${lname}
+
+Input FirstName	[Arguments]	${fname}	${i}
+		Input Text	passengerDetails[${i}].firstname	${fname}
+
+Input telephone	[Arguments]	${cnumber}	${i}
+		Input Text	passengerDetails[${i}].countryCallingPhone	${cnumber}
+
+Input email	[Arguments]	${email}	${i}
+		Input Text	passengerDetails[${i}].email	${email}
+		
+Input confirm-email		[Arguments] 	${cemail}	${i}
+		Input Text	passengerDetails[${i}].confirmEmail	${cemail}
+
+Input dob-date		[Arguments] 	${dobd}		${i}
+		Input Text	passengerDetails[${i}].dateOfBirth.day	${dobd}
+		
+Select dob-month		[Arguments] 	${dobm}		${i}
+		Select From List	passengerDetails${i}.dateOfBirth.month		${dobm}
+		
+Input dob-year		[Arguments] 	${doby}		${i}
+		Input Text	passengerDetails[${i}].dateOfBirth.year	${doby}
+
+Select nationality		[Arguments] 	${natn}		${i}
+		Select From List	passengerDetails${i}.nationality		${natn}
+		
+Select residence		[Arguments] 	${resd}		${i}
+		Select From List	passengerDetails${i}.homeCountry		${resd}
+
+Input passport		[Arguments] 	${passp}		${i}
+		Input Text	passengerDetails[0].documentId  	${passp}
+
+Input dob-date-passp		[Arguments] 	${dobdp}		${i}
+		Input Text	passengerDetails${i}.documentEndDate.day	${dobdp}
+		
+Select dob-month-passp		[Arguments] 	${dobmp}		${i}
+		Select From List	passengerDetails${i}.documentEndDate.month		${dobmp}
+		
+Input dob-year-passp		[Arguments] 	${dobyp}		${i}
+		Input Text	passengerDetails${i}.documentEndDate.year	${dobyp}
+		
+Select doc-country		[Arguments] 	${dcnt}		${i}
+		Select From List	passengerDetails${i}.documentCountry		${dcnt}
+
+Select Gender	[Arguments] 	${gend}		${i}
+		Select From List	passengerDetails${i}.gender	${gend}
+		
+Click aba
+		Click Image 	xpath=//input[@name='aba']
+		Wait Until Page Loaded
+		
+Select aba-dep	[Arguments] 	${aba}	${i}
+		Select From List	flights0.passengerAndBagsDetails${i}.selectedBags	${aba}
+
+Select aba-arr	[Arguments] 	${abaa}		${i}
+		Select From List	flights0.passengerAndBagsDetails${i}.selectedBags	${abaa}		
+
+Click aba-purchase
+		Click Image		xpath=(//input[@name='submit'])[2]
+		Wait Until Page Loaded
+
+Click get-insurance
+		Click Image		css=input[name="displayInsurance"]
+		Wait Until Page Loaded
+
+Select insurance-type
+		Select Radio Button		ebtForm7.insurance.insuranceType		Assistance
+
+Click save-insurance
+		Click Image		css=input[name="backInsurance"]
+		Wait Until Page Loaded
+		
+Click seat-choose-dep
+		Click Image		xpath=//input[@name='segmentvv0']
+		Wait Until Page Loaded
+
+Click seat-choose-arr
+		Click Image		xpath=//input[@name='segmentvv1']
+		Wait Until Page Loaded
+		
+Click seat-choose-back
+		Click Image		xpath=//input[@name='back']
+		Wait Until Page Loaded
+
+Click return-tab
+		Click Image		xpath=//input[@name='submitTabvv1']
+		Wait Until Page Loaded
+
+Select aba-ret	[Arguments] 	${abar}	${i}
+		Select From List	flights1.passengerAndBagsDetails${i}.selectedBags	${abar}
+
+Check termsandcondition
+		Select Checkbox 	pricingAccepted
+		
+Choose pay-by-phone
+	Select Radio Button		modmopSelected	12_3
+
+Click home-ebt9
+	Click Image		xpath=//input[@name='home']
+	Wait Until Page Loaded
+	
+Click Buy TTT option
+	Click Image		xpath=//input[@name='submitTTTvvsubmitTTT']
+	Wait Until Page Loaded
+	
+Click Submit TTT option
+	Click Image		xpath=//input[@name='submitvvsubmit']
+	Wait Until Page Loaded
+
+Click TTT add this option
+	Click Image		css=input[name="submitTTT"]
+	Wait Until Page Loaded
+	
+Select Credit Card
+	Select Radio Button		paymentType		CC
+	
+Select c-type	[Arguments]  ${ctyp}
+	Select From List	cardType	${ctyp}
+	
+Input card-num	[Arguments] 	${cnum}
+	Input Text	cardNum	${cnum}
+
+Select exp-mon	[Arguments]  ${emon}
+	Select From List	expiryDate.month	${emon}
+	
+Select exp-year		[Arguments]  ${eyear}
+	Select From List	expiryDate.year		${eyear}
+	
+Input crypto	[Arguments] 	${cryp}
+		Input Text	cardSecurityNumber	${cryp}
+
+Input c-lname	[Arguments] 	${clnam}
+		Input Text	cardOwnerLastName	${clnam}
+
+Input c-fname	[Arguments] 	${cfnam}
+		Input Text	cardOwnerFirstName	${cfnam}
+		
+Input c-addr	[Arguments] 	${caddr}
+		Input Text	payerAddress1	${caddr}
+		
+Input c-poscode	[Arguments] 	${cpcode}
+		Input Text	payerZipCode	${cpcode}
+
+Input c-city	[Arguments] 	${ccit}
+		Input Text	payerCity	${ccit}
+
+Select State	[Arguments]  ${state}
+	Select From List	payerState		${state}
+
+Select pcountry		[Arguments]  ${pcountry}
+	Select From List	payerCountry		${pcountry}
+	
+Get PNR
+    ${return} =   Get Text  xpath=//tr[@id='ebt9.referenceLabel']/td[2]
+    [Return]  ${return}
+	
+Detect Currency ebt2
+	#Call Selenium Api	storeText	xpath=//*[@id="ebtForm45KL"]/div[1]/table[2]/tbody/tr[1]/td[3]
+	${cur2}=	Get Text	css=span.mop.currency
+	#Get Inner Html		xpath=//*[@id="ebtForm45KL"]/div[1]/table[2]/tbody/tr[1]/td[3]
+	[Return]	${cur2}
+	
+Detect Currency ebt45
+	#${ebt14}=	Call Selenium Api	storeText	css=td.price1
+	${cur45}=	Get Text	css=span.mop.currency
+	#Get Inner Html		xpath=//*[@id="ebt14."]/td[5]
+	[Return]	${cur45}
+
+Detect Currency ebt6
+	${cur6}=	Get Text	css=td.Value > span > span > b
+	[Return]	${cur6}
+	
+Verify Continue Present
+	Page Should Contain Button	xpath=(//input[@name='submit'])[2]
+
+Verify EBT2 Dep-Text	[Arguments]  ${text}
+	Element Text Should Be		css=span.afCalendarTitle	${text}
+
+Verify EBT2 Ret-Text	[Arguments]  ${text}
+	Element Text Should Be		xpath=//div[2]/table/tbody/tr[2]/td/span/span		${text}
+
+	
+=== Calendar ===
+Click next month dep
+	Click Image		xpath=//img[@id='departureCal_nextMonthBtn']	,and dont't wait
+		
+Click next month rtn
+	Click Image		xpath=//img[@id='returnCal_nextMonthBtn']		,and dont't wait
+	
+Click last date on dep calendar
+	Click Image		xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div		,and don't wait
+	
+Click last date on return calendar
+	Click Image		xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div		,and dont't wait
+
+=== Flying Blue ===
+
+Open AF FB
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	Click Image	xpath=//div[@id='nt']/div[9]/a
+	Wait Until Page Loaded
+
+Input FBLogin	[Arguments]	${login}
+	Input Text	username	${login}
+
+Input FBPin	[Arguments]	${pin}
+	Input Password	pinCode		${pin}
+
+Submit log in
+	Click Button	submit
+	Wait Until Page Loaded
+
+Click Mileage Summary
+	Click Image		xpath=//input[@name='summary']
+	Wait Until Page Loaded
+	
+Click Manage My Profile
+	Click Image 	xpath=//input[@name='back']
+	Wait Until Page Loaded
+	
+Click Personal Information Change
+	Click Image		xpath=//input[@name='change-0vv0']
+	Wait Until Page Loaded
+
+Input BlueBiz  [Arguments]  ${BB}
+    Input Text  blueBizNo  ${BB}
+
+Click Save Personal Details
+	Click Image		xpath=//input[@id='btn1_1']
+	Wait Until Page Loaded
+	
+Click Drill Down Personal Details
+	Click Image		xpath=//span[@id='ddd1']		,and dont't wait
+	
+Click My Transactions Tab
+	Click Image		css=#myTransactions > span		,and dont't wait
+
+Click Back to My Profile
+	Click Image		xpath=//input[@id='btn2_1']
+	
+Click Modify Communication Preferences
+	Click Image		xpath=//input[@name='change-6vv6']
+
+Click Back to My Profile From Comm Pref
+	Click Image		xpath=//input[@id='btn1_0']
+	
+	
+=== Flight Times ===
+	
+Open All flight times from HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	Click Image		xpath=//img[@src[contains(.,'nall')]]
+	Wait Until Page Loaded
+	
+Open Flight Status
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	Click Image		xpath=//div[@id='nt']/div[3]/a
+	Wait Until Page Loaded
+	
+Open FS Destination
+	Click Image		xpath=//div[@id='tabHeaderDestination']/div
+	
+Input Departing		[Arguments]	${dest}
+	Input Text	escaleDepartIdLib	${dest}
+	
+Input Arrival		[Arguments]	${arriv}
+	Input Text	escaleArriveeIdLib	${arriv}
+	
+Click Depart-List
+	Click Image 	css=span.settings.onlyMobile > a	,and don't wait
+
+Select depart-country	[Arguments]  ${count}
+	Select From List	xpath=//select[@id='pays']		${count}
+	
+Select depart-airport	[Arguments]  ${airpor}
+	Select From List	escales		${airpor}
+	
+Click Arival-List
+	Click Image		xpath=//a[@onclick="javascript:GBR_showFullWidth('','/cgi-bin/AF/US/en/local/transverse/cityLookUp.do?idInputEscale=hvcArriveeEscaleId&idInputHiddenEscale=hvcArriveeEscaleIdInput&codeApplication=MSTD&typeEscales=destination&preventFocusAfterPopin=true&mobilecss=true', 250);return false;"]	,and don't wait
+						  
+Select ariva-country	[Arguments]  ${count}
+	Select From List	xpath=//select[@id='pays']		${count}
+	
+Select ariva-airport	[Arguments]  ${airpor}
+	Select From List	escales		${airpor}
+	
+Cilck Validate
+	Click Image		css=#validateButtonContainer > span		,and don't wait
+
+Choose arrive
+	Select Radio Button		choixOrigine[0]	arrivantle
+	
+Click first flight flight status
+	Click Image		xpath=//div[@id='listeVols']/div[2]/div/div/div/span	,and don't wait
+	
+	
+Click First flight Return
+	Click Image		xpath=//div[@id='top']/div/form/table[3]/tbody/tr/td[3]/a/b	,and don't wait
+
+#Click fssearch
+	#Click Image		xpath=//button[@id='idValidateButton']	,and don't wait
+
+Click fssearch
+	Click Button  idValidateButton	,and don't wait
+	
+Click New Search
+	Click Image		xpath=//input[@name='newSearch']
+	Wait Until Page Loaded
+	
+Open FS By Flight Number
+	Click Image		xpath=//div[@id='tabHeaderNumFlight']/div	,and don't wait
+	
+Input Flight Number		[Arguments]		${numb}
+	Input Text	xpath=//input[@id='idNumvol']		${numb}
+
+Open OTT
+	Click Image		xpath=//div[@id='nt']/div[7]/a
+	Wait Until Page Loaded
+
+Click Confirm
+	Click Image		xpath=//input[@name='confirm']
+	Wait Until Page Loaded
+	
+Click Week Of Day
+	Click Image		xpath=//td[7]/a/span
+	Wait Until Page Loaded
+
+Click New Search OTT
+	Click Image		xpath=//input[@name='back']
+	Wait Until Page Loaded
+
+Click Week of Day OTT
+	Click Image		xpath=//td[7]/a/span
+	Wait Until Page Loaded
+	
+====MMB====
+Open MMB from HP
+	Click Image		xpath=//div[4]/a
+	Wait Until Page Loaded
+
+Click Passagers Tab
+	Click Image		css=img[alt="Passagers"]
+	Wait Until Page Loaded
+	#//div[@id='tabs']/div/a/img
+	
+Click Preferences Tab
+	Click Image		css=img[alt="Préférences"]
+	Wait Until Page Loaded
+	#//div[@id='tabs']/div/a[2]/img
+
+Verify Payer Your Trip
+	Page Should Contain Button		xpath=//input[@id='btn1_1']
+	
+Verify Select Or Modify Passengers
+	Page Should Contain Button		xpath=//input[@id='btn1_1']
+
+Veridy Select or Modify Contacts
+	Page Should Contain Button		xpath=//input[@id='btn2_1']
+
+Verify Add Baggage Button
+	Page Should Contain Button		xpath=//input[@id='btn1_1']
+	
+Click Other Reservations
+	Click Image		xpath=//input[@id='btn2_1']
+
+Click View Bookings Details
+	Click Image		xpath=(//span[@onclick='$(this).prev().click()'])[2]
+	
+====Contact US====
+Click on Contact US from HP
+	Click Image		xpath=//a[contains(@href, 'fcontact.htm')]
+	
+Click on Contact US
+	

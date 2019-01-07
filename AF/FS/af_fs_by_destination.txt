@@ -1,0 +1,20 @@
+*** Settings ***
+
+Documentation  Flight Status by destination
+...						   
+Resource		../common_resource.txt
+
+
+*** Test Cases ***
+
+Flight Status by Detination
+		[Tags]		FS
+		Open Flight Status
+		Open FS Destination
+		Input Departing		CDG
+		Input Arrival		AMS
+		Click fssearch
+		#Click First flight Return
+		Submit Search
+		Click New Search
+	

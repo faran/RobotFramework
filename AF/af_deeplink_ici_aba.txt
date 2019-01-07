@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI ABA Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI ABA
+		[Tags]    DLINK
+		Test Setup
+		ICI-ABA

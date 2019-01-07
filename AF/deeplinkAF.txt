@@ -1,0 +1,54 @@
+1 pax Return calendar search true eco LH
+
+ebtApp.htm?ebtForm1.nbPassenger=1
+paxTypoList[0]=ADT
+cabin=Y_FLEX
+ebtForm1.calendarSearch=true
+ebtForm1.departDate=2014-05-30
+ebtForm1.returnDate=2014-07-30
+ebtForm1.fromAirportCode=CDG
+ebtForm1.toAirportCode=JFK
+ebtForm1.tripType=2
+lang=en_FR
+
+
+
+2 pax one way calendar search true eco LH
+
+ebtApp.htm?ebtForm1.nbPassenger=2
+paxTypoList[0]=ADT
+paxTypoList[1]=ADT
+cabin=Y_FLEX
+ebtForm1.calendarSearch=true
+ebtForm1.departDate=2014-05-30
+ebtForm1.returnDate=2014-07-30
+ebtForm1.fromAirportCode=CDG
+ebtForm1.toAirportCode=JFK
+ebtForm1.tripType=1
+lang=en_FR
+
+1 pax Return calendar search true eco SMH
+
+ebtApp.htm?ebtForm1.nbPassenger=1
+paxTypoList[0]=ADT
+cabin=Y_FLEX
+ebtForm1.calendarSearch=true
+ebtForm1.departDate=2014-05-30
+ebtForm1.returnDate=2014-07-30
+ebtForm1.fromAirportCode=CDG
+ebtForm1.toAirportCode=MAD
+ebtForm1.tripType=2
+lang=en_FR
+
+1 pax one way calendar search false eco SMH
+
+ebtApp.htm?ebtForm1.nbPassenger=2
+paxTypoList[0]=ADT
+paxTypoList[0]=ADT
+cabin=Y_FLEX
+ebtForm1.calendarSearch=false
+ebtForm1.departDate=2013-12-06
+ebtForm1.fromAirportCode=CDG
+ebtForm1.toAirportCode=LHR
+ebtForm1.tripType=1
+lang=en_FR

@@ -1,0 +1,48 @@
+*** Settings ***
+Documentation     KLM EBT - Nl_NL - 1 Adult - Return - Flexible Dates - FB - Login - M Class
+Resource          common_resource.txt
+
+*** Test Cases ***
+AMS-LHR-AMS
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Netherlands
+    Click Choose Country Select
+    Select Language    Nederlands
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Amsterdam - Schiphol (AMS)
+    Input To    LHR
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+    Check flexible days
+    Submit Search
+	# Select Dates
+    Submit Search
+    # Select Flights
+    Submit Search
+    # Your Order
+    Submit Search
+    
+	# Pax Detail Page
+    Click fb-login
+	Input FBLogin	2058018534
+	Input FBPin		5655
+	Click fb-go
+	
+    Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].firstname']	FARAN
+	Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].lastname']	KHAN
+	Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].ffNumber']	2058018534
+	Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].email']	farankhan@mobileaware.com
+	Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].confirmEmail']	farankhan@mobileaware.com
+	Textfield Value Should Be		xpath=//input[@id='passengerDetails[0].telNumber1']	353086 167 6477
+		
+	Submit Search

@@ -1,0 +1,16 @@
+*** Settings ***
+
+Documentation  Flight Status by flight number
+...						   
+Resource		../common_resource.txt
+
+
+*** Test Cases ***
+
+Flight Status by Flight number
+		[Tags]		FS
+		Open Flight Status
+		#Open FS By Flight Number
+		Input Flight Number		2000
+		Click fssearch
+		Click New Search

@@ -1,0 +1,78 @@
+﻿*** Settings ***
+Documentation     fr_FR PAR - TLS - PAR Exact Date Economy FB Login
+Resource          common_resource.txt
+
+*** Test Cases ***
+PAR-TLS-PAR
+	[Tags]	EBT
+	[Tags]	nightly
+	[Tags]	  Regression
+    Test Setup
+	Open AF HP
+	Click change country
+	Select Country		France
+	Click Choose Country
+	Select Language    Français
+	Click Choose Language
+	Click Purchase a Ticket
+	Open EBT from HP
+	
+	Input From	PAR
+	Input To	TLS
+	    
+    Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+    Click next month rtn
+    Click last date on return calendar
+    UnCheck flexible days
+	Submit Search
+	
+	#ebt1_1 la navette
+	Page Should Contain	Element		css=#departureId
+	Page Should Contain	Element		css=#returnId
+	Submit Search
+	
+	#ebt5 upsell
+	Page Should Contain		Paris - Toulouse
+	Click Next
+	
+	#ebt5 upsell
+	Page Should Contain		Toulouse - Paris
+    Submit Search
+    
+	#summary page
+	#Page Should Contain		1 Adulte
+	#Page Should Contain Button	xpath=//input[@name='aba']
+    Submit Search
+    
+	#paxdetail
+	Input Fbnumber	2058018534
+	Input Fbcode	5655
+	Click login
+	
+	#Input LastName    JMS
+    #Input FirstName   JMS
+    #Input telephone    090909009
+    #Input email    farankhan@mobileaware.com
+    Input confirm-email    farankhan@mobileaware.com	0
+	Check termsandcondition
+    Submit Search
+    
+	##Payment detail page
+	Page Should Contain		Montant à payer
+	Page Should Contain		Sélectionnez un type de paiement
+	Select Credit Card
+	Page Should Contain Radio Button	css=#creditCardOwner1
+	Page Should Contain Radio Button	css=#creditCardOwner2
+	Select c-type	Carte VISA
+	Input card-num	4970100000196796
+	Select exp-mon	05 - mai
+	Select exp-year		2028
+	Input crypto		123
+	Input c-lname		test
+	Input c-fname		test
+	Input c-addr	test
+	Input c-poscode	12345
+	Input c-city	test

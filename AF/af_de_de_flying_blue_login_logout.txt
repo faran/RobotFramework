@@ -1,0 +1,31 @@
+*** Settings ***
+
+Documentation  Flying blue login logut flow in de de
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		Germany
+		Click Choose Country
+		Select Language		Deutsch
+		Click Choose Language
+		
+		Open FB from HP
+		Input FBLogin	2058018534
+		Input FBPin		5655
+		Submit log in
+		Page Should Contain		Persönliche Daten
+		Page Should Contain		Flying Blue
+		Page Should Contain		Erweiterte Fluggastdaten (Advance Passenger Information, API)
+		Page Should Contain		Zahlungsdaten
+		Page Should Contain		Persönliche Flugpräferenzen
+		Page Should Contain		Kommunikationseinstellungen
+		Click Mileage Summary
+		Page Should Contain		Herr FARAN KHAN
+		Click Manage My Profile
+		Click Home from header
+		Click sign out

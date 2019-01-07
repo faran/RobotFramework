@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  SeleniumLibrary is also
+...            imported here so that no other file needs to import it.
+#--runmode DryRun
+
+Resource	   cj_resources.txt
+Library        SeleniumLibrary		60
+
+*** Variables ***
+
+#${SERVER}        localhost:8080/cj
+${SERVER}        cj.mobileaware.com
+${BROWSER}       googlechrome

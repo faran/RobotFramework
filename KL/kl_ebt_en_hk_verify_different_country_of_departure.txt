@@ -1,0 +1,24 @@
+﻿*** Settings ***
+Documentation     KLM EBT - en_HK - Verify different country of departure
+Resource          common_resource.txt
+
+*** Test Cases ***
+AMS-LHR-AMS
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Hong Kong
+    Click Choose Country Select
+    Select Language    English
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Amsterdam - Schiphol (AMS)
+    Input To    LHR
+    Submit Search
+	Page Should Contain		 Because of the country of departure you have chosen (Netherlands), all prices will be shown in EUR. Our local KLM Ticket Office will send you your ticket.
+	
+	
+	
+	
+

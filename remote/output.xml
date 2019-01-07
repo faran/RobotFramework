@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20121116 13:04:16.344" generator="Robot 2.7.5 (Python 2.7.2 on win32)">
+<errors>
+<msg timestamp="20121116 13:04:21.422" level="ERROR">Unexpected error: Connecting remote server failed: &lt;ProtocolError for ctest.mobileaware.com/RPC2: 400 Bad Request&gt;
+Traceback (most recent call last):
+  File "c:\Python27\lib\site-packages\robot\run.py", line 362, in main
+    suite.run(output)
+  File "c:\Python27\lib\site-packages\robot\running\model.py", line 125, in run
+    context = self._start_run(output, parent, errors)
+  File "c:\Python27\lib\site-packages\robot\running\model.py", line 144, in _start_run
+    ns.handle_imports()
+  File "c:\Python27\lib\site-packages\robot\running\namespace.py", line 60, in handle_imports
+    self._handle_imports(self.suite.imports)
+  File "c:\Python27\lib\site-packages\robot\running\namespace.py", line 79, in _handle_imports
+    self._import(item)
+  File "c:\Python27\lib\site-packages\robot\running\namespace.py", line 87, in _import
+    action(import_setting, self.variables.current)
+  File "c:\Python27\lib\site-packages\robot\running\namespace.py", line 127, in _import_library
+    import_setting.alias, variables)
+  File "c:\Python27\lib\site-packages\robot\running\importer.py", line 38, in import_library
+    lib = self._import_library(name, positional, named, lib)
+  File "c:\Python27\lib\site-packages\robot\running\importer.py", line 59, in _import_library
+    lib.create_handlers()
+  File "c:\Python27\lib\site-packages\robot\running\testlibraries.py", line 126, in create_handlers
+    self.handlers = self._create_handlers(self._libinst)
+  File "c:\Python27\lib\site-packages\robot\running\testlibraries.py", line 205, in _create_handlers
+    for name in self._get_handler_names(libcode):
+  File "c:\Python27\lib\site-packages\robot\running\testlibraries.py", line 345, in _get_handler_names
+    return instance.get_keyword_names()
+  File "c:\Python27\lib\site-packages\robot\libraries\Remote.py", line 42, in get_keyword_names
+    raise RuntimeError('Connecting remote server failed: %s' % err)</msg>
+</errors>
+</robot>

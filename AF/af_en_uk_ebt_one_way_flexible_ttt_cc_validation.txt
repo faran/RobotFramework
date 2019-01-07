@@ -1,0 +1,74 @@
+﻿*** Settings ***
+
+Documentation  EBT one way exact dates with fb login on pax detail and TTT .
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+LHR-CDG
+		[Tags]	EBT
+		[Tags]	nightly
+		[Tags]	TTT
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		UK
+		Click Choose Country
+		Click Purchase a Ticket
+		Open EBT from HP
+		
+		Input From	LHR
+		Input To	CDG
+		Choose One-way
+		Click next month dep
+		Click last date on dep calendar
+		Submit Search
+		
+		#ebt2
+		Page Should Contain		Your departure flight: London to Paris
+		Page Should Contain		Total amount including taxes for 1 Adult passenger(s) : 
+		Submit Search
+		
+		#ebt45
+		Page Should Contain		Departure:
+		Page Should Contain		London - Paris
+		Page Should Contain		Total amount including taxes for 1 Adult passenger(s) : 
+		Submit Search
+		
+		#summary
+		Page Should Contain		Passengers
+		Page Should Contain		1 Adult
+		Page Should Contain		Your departure flight
+		Page Should Contain		London - Paris
+		Page Should Contain		£ 0 per passenger
+		Click TTT add this option
+		Page Should Contain		Option added
+		Page Should Contain Button		xpath=//input[@value='Delete']
+		Page Should Contain Button	xpath=//input[@name='aba']
+		Submit Search
+		
+		#paxdetail
+		Input Fbnumber	2058018534
+		Input Fbcode	5655
+		Click login
+		
+		#Input LastName    JMS
+		#Input FirstName   JMS
+		#Input telephone    090909009
+		#Input email    farankhan@mobileaware.com
+		#Page Should Contain Radio Button	css=#paciUserAccept1
+		#Page Should Contain Radio Button	css=#paciUserAccept2
+		Input confirm-email    farankhan@mobileaware.com	0
+		Check termsandcondition
+		Submit Search
+		
+		#Payment detail page
+		Page Should Contain		Your reservation
+		Page Should Contain		Your trip
+		Page Should Contain		Ticket pricing
+		Page Should Contain		Passengers
+		Page Should Contain		Contacts
+		Page Should Contain		Passport details
+		Page Should Contain		Modify my profile
+		

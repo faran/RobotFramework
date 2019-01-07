@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  KLM Flying Blue Logout Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+FB
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		FB-Logout

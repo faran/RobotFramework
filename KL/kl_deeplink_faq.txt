@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  KLM FAQ Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+FAQ
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		FAQ

@@ -1,0 +1,35 @@
+*** Settings ***
+
+Documentation  EBT one way exact dates
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+EBT cal 1 way Exact Dates
+	
+	
+		Open AF HP
+		Open EBT from HP
+		Input From	CDG
+		Input To	LHR
+		Choose One-way
+		Click next month dep
+		Click last date on dep calendar
+		#ebt1
+		Submit Search
+		#ebt2
+		Submit Search
+		#upsell
+		Submit Search
+		#summary
+		Submit Search
+		#paxdetail
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+		

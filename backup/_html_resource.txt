@@ -1,0 +1,62 @@
+*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            that create our own domain specific language. This resource
+...            implements keywords for testing HTML version of the test
+...            application. 
+...            common_resource.txt is used to select which one to use.
+
+
+*** Variables ***
+
+${AF_HP}     http://${SERVER}/af/index.htm
+${KL_HP}     http://${SERVER}/kl/index.htm
+${AF_EBT}     http://${SERVER}/af/ebt.htm
+
+
+*** Keywords ***
+
+Open AF HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  Air France Mobile
+
+Open KL HP
+	Open Browser  ${KL_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  KLM Mobile
+
+Open EBT from HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	Click Image	xpath=//div[@id='nt']/div/a/img
+
+Open AF EBT
+	Open Browser  ${AF_HP}  ${BROWSER}
+    Go TO	${AF_EBT}
+
+Input From  [Arguments]  ${airportFrom}
+    Input Text  from  ${airportFrom}
+
+Input To  [Arguments]  ${airportTo}
+    Input Text  to  ${airportTo}
+
+Submit Search
+    Click Button  submit
+
+	
+
+Input LastName	[Arguments]	${lname}
+		Input Text	passengerDetails[0].lastName	${lname}
+
+Input FirstName	[Arguments]	${fname}
+		Input Text	passengerDetails[0].firstName	${fname}
+
+Input telephone	[Arguments]	${cnumber}
+		Input Text	passengerDetails[0].countryCallingPhone	${cnumber}
+
+Input email	[Arguments]	${email}
+		Input Text	passengerDetails[0].email	${email}
+		
+Check termsandcondition
+		Select Checkbox 	pricingAccepted

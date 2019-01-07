@@ -1,0 +1,76 @@
+Aug 18, 2014 3:50:53 PM org.openqa.grid.selenium.GridLauncher main
+INFO: Launching a standalone server
+15:50:55.878 INFO - Java: Oracle Corporation 24.51-b03
+15:50:55.880 INFO - OS: Windows 7 6.1 x86
+15:50:56.016 INFO - v2.21.0, with Core v2.21.0. Built from revision 16552
+15:50:58.019 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+15:50:58.020 INFO - Version Jetty/5.1.x
+15:50:58.020 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+15:50:58.021 INFO - Started HttpContext[/selenium-server,/selenium-server]
+15:50:58.021 INFO - Started HttpContext[/,/]
+15:50:58.172 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@1219b8c
+15:50:58.172 INFO - Started HttpContext[/wd,/wd]
+15:50:58.178 INFO - Started SocketListener on 0.0.0.0:4444
+15:50:58.178 INFO - Started org.openqa.jetty.jetty.Server@1b493c6
+15:50:59.885 INFO - Checking Resource aliases
+15:50:59.889 INFO - Checking Resource aliases
+15:50:59.912 INFO - Command request: getNewBrowserSession[*googlechrome, http://qa6.mobileaware.com, , addCustomRequestHeaders=true] on session null
+15:50:59.931 INFO - creating new remote session
+15:51:00.327 INFO - Allocated session 989091bfef9d47eea4291576005aad04 for http://qa6.mobileaware.com, launching...
+15:51:00.379 INFO - Launching Google Chrome...
+15:51:04.696 INFO - Got result: OK,989091bfef9d47eea4291576005aad04 on session 989091bfef9d47eea4291576005aad04
+15:51:04.736 INFO - Command request: setTimeout[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:04.851 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:04.862 INFO - Command request: open[http://qa6.mobileaware.com, True] on session 989091bfef9d47eea4291576005aad04
+15:51:08.387 INFO - Started SocketListener on 0.0.0.0:50764
+15:51:08.718 INFO - Started SocketListener on 0.0.0.0:50771
+15:51:09.260 INFO - Started SocketListener on 0.0.0.0:50775
+15:51:09.532 INFO - Started SocketListener on 0.0.0.0:50778
+15:51:10.166 INFO - Started SocketListener on 0.0.0.0:50782
+15:51:10.468 INFO - Couldn't proxy to http://ppvuawbfwebdii/ because host not found
+15:51:10.468 INFO - Couldn't proxy to http://rjkqwethkaq/ because host not found
+15:51:10.468 INFO - Couldn't proxy to http://kejhtduoootri/ because host not found
+15:51:28.436 INFO - Started SocketListener on 0.0.0.0:50802
+15:51:28.793 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:28.818 INFO - Command request: windowMaximize[, ] on session 989091bfef9d47eea4291576005aad04
+15:51:28.829 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:28.835 INFO - Command request: getTitle[, ] on session 989091bfef9d47eea4291576005aad04
+15:51:28.851 INFO - Got result: OK,Air France Mobile on session 989091bfef9d47eea4291576005aad04
+15:51:28.879 INFO - Command request: getLocation[, ] on session 989091bfef9d47eea4291576005aad04
+15:51:28.952 INFO - Got result: OK,http://qa6.mobileaware.com/index.htm on session 989091bfef9d47eea4291576005aad04
+15:51:28.957 INFO - Command request: click[xpath=//a[@id="choose.htm" or @name="choose.htm" or @href="choose.htm" or normalize-space(descendant-or-self::text())="choose.htm" or @href="http://qa6.mobileaware.com/choose.htm"], ] on session 989091bfef9d47eea4291576005aad04
+15:51:28.973 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:28.977 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:32.553 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:32.559 INFO - Command request: getAttribute[country@multiple, ] on session 989091bfef9d47eea4291576005aad04
+15:51:32.577 INFO - Got result: ERROR: Could not find element attribute: country@multiple on session 989091bfef9d47eea4291576005aad04
+15:51:32.582 INFO - Command request: select[country, France] on session 989091bfef9d47eea4291576005aad04
+15:51:32.593 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:32.600 INFO - Command request: click[xpath=//form[@id='chooseForm1']/table[2]/tbody/tr[2]/td/input, ] on session 989091bfef9d47eea4291576005aad04
+15:51:32.624 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:32.630 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:33.662 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:33.670 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:33.684 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:33.701 INFO - Command request: getAttribute[language@multiple, ] on session 989091bfef9d47eea4291576005aad04
+15:51:33.717 INFO - Got result: ERROR: Could not find element attribute: language@multiple on session 989091bfef9d47eea4291576005aad04
+15:51:33.755 INFO - Command request: select[language, Français] on session 989091bfef9d47eea4291576005aad04
+15:51:33.765 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:33.771 INFO - Command request: click[xpath=//form[@id='chooseForm2']/table[2]/tbody/tr[2]/td/input, ] on session 989091bfef9d47eea4291576005aad04
+15:51:33.784 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:33.789 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:42.897 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:42.906 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:42.917 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:42.925 INFO - Command request: click[xpath=//div[@id='nt']/div[9]/a, ] on session 989091bfef9d47eea4291576005aad04
+15:51:42.935 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:42.941 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:44.081 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:44.085 INFO - Command request: waitForPageToLoad[180000.0, ] on session 989091bfef9d47eea4291576005aad04
+15:51:44.095 INFO - Got result: OK on session 989091bfef9d47eea4291576005aad04
+15:51:44.101 INFO - Command request: type[username, 2058018534] on session 989091bfef9d47eea4291576005aad04
+15:51:44.112 INFO - Got result: ERROR: Element username not found on session 989091bfef9d47eea4291576005aad04
+15:51:44.116 INFO - Command request: captureScreenshotToString[, ] on session 989091bfef9d47eea4291576005aad04
+15:51:44.135 INFO - Creating Robot
+15:51:45.138 INFO - Got result: [base64 encoded PNG] on session 989091bfef9d47eea4291576005aad04
+15:52:01.134 INFO - Started SocketListener on 0.0.0.0:50841

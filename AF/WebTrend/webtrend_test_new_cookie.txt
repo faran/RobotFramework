@@ -1,0 +1,12 @@
+*** Settings ***
+Documentation     TEST
+Resource          common_resource.txt
+
+*** Test Cases ***
+AF
+    Test Setup
+	: FOR    ${i}    IN RANGE    1    100
+	\	Open AF HP
+	\	Delete All Cookies
+    \	Test Teardown
+	\   LOG	${i}

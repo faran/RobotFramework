@@ -1,0 +1,22 @@
+*** Settings ***
+
+Documentation  Flying blue login logut flow
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+
+Fb sign in sign out
+
+	Test Setup
+		[Tags]		FB
+		Open AF HP
+		Open FB from HP
+		Input FBLogin	2058018534
+		Input FBPin		5655
+		Submit log in
+		Click Mileage Summary
+		Click Manage My Profile
+		Click Home from header
+		Click sign out

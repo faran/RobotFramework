@@ -1,0 +1,21 @@
+*** Settings ***
+
+Documentation  Flight Status by flight number
+...						   
+Resource		common_resource.txt
+
+
+*** Test Cases ***
+FN-1000
+		[Tags]    nightly
+		Test Setup
+		Open KL HP
+		Open FI from HP
+		Open FS
+		Open FS By Flight Number
+		Input Flight Number		1000
+		Submit Search
+		Verify flight status info
+		Page Should Contain		Flight information KL 1000 from London (Heathrow Airport) to Amsterdam (Schiphol)
+		#Click New Search
+		Submit Search

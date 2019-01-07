@@ -1,0 +1,88 @@
+﻿
+*** Settings ***
+
+Documentation  Japan FCO-CDG-FCO  CC Validation
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+FCO-CDG-FCO
+		[Tags]	EBT
+		[Tags]	nightly
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		Japan
+		Click Choose Country
+		Select Language    日本語
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+				
+		#Input From	JFK
+		Input To	CDG
+		
+		Click next month dep
+		Click last date on dep calendar
+		Click next month rtn
+		Click last date on return calendar
+		Check flexible days
+		Select PAX	大人(25 - 64)	0
+		Select Class	Premium Economy
+		Submit Search
+		
+		#ebt2 select date
+		#Verify EBT2 Dep-Text	 往路便: 東京 目的地 パリ
+		#Verify EBT2 Ret-Text	 復路便: パリ 目的地 東京
+		Submit Search
+		
+		#ebt 45 upsell page
+		#Page Should Contain	 出発:
+		#Page Should Contain	 東京 - パリ
+		Click Next
+		
+		#Page Should Contain	 復路：:
+		#Page Should Contain	 パリ - 東京
+		Submit Search
+		
+		#summary page ebt6
+		#Page Should Contain	旅客
+		#Page Should Contain	1 大人
+		#Page Should Contain	往路便
+		#Page Should Contain	東京 - パリ
+		#Page Should Contain	復路便
+		#Page Should Contain	パリ - 東京
+		Submit Search
+		
+		#paxdetail page
+		Input LastName	jms	0
+		Input FirstName	jms	0
+		Input telephone	090909009	0
+		Input email	farankhan@mobileaware.com	0
+		Input confirm-email	farankhan@mobileaware.com	0
+		Input dob-date	15	0
+		Select dob-month	5 月		0
+		Input dob-year	1990	0
+		Select Gender	男性	0
+		Check termsandcondition
+		Submit Search
+		
+		#Seat Choose page
+		Page Should Contain	シート
+		Click Confirm
+		
+		#Payment detail page
+		Page Should Contain	合計支払金額
+		Select Credit Card
+		Select c-type	  ビザカード
+		Input card-num	4970100000196796
+		Select exp-mon	05 - 5 月
+		Select exp-year		2028
+		Input crypto		123
+		Input c-lname		test
+		Input c-fname		test
+		Input c-addr	test
+		Input c-poscode	12345
+		Input c-city	test
+		#Select State	Bari

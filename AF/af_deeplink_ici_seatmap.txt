@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI Seatmap Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI SM
+		[Tags]    DLINK
+		Test Setup
+		ICI-Seatmap

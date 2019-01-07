@@ -1,0 +1,38 @@
+*** Settings ***
+
+Documentation  Flight Schedule OTT with connections
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+CDG-NYC
+		[Tags]	OTT
+		[Tags]	nightly
+		[Tags]	  Regression
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+		Open OTT
+		Page Should Contain		Partir de*
+		Page Should Contain		Arriver à*
+		Input From		CDG
+		Input To		NYC
+		Click Confirm
+		Page Should Contain		Vols directs
+		Page Should Contain		Vols en correspondance
+		Click Week of Day OTT
+		Page Should Contain		Partir de:
+		Page Should Contain		Paris, Charles de Gaulle (CDG) - France
+		Page Should Contain		Arriver à:
+		Page Should Contain		New York, tous les aéroports (NYC) NY - Etats Unis
+		Page Should Contain		Vol / Avion
+		Page Should Contain		Départ
+		Page Should Contain		Arrivée
+		Page Should Contain		Durée
+		Click New Search OTT
+	

@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  CJ Special Offers
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CJ Special Offers
+	
+	Test Setup
+	Open CJ HP
+	Open Special-Offers
+	Click Home Header

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140407 15:25:16.145" generator="Robot 2.7.7 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\CJ\cj_alive.txt" id="s1" name="Cj Alive">
+<test id="s1-t1" timeout="" name="CJ">
+<kw type="kw" name="cj_resources.Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Start Selenium Server" timeout="">
+<doc>Starts the Selenium Server provided with SeleniumLibrary.</doc>
+<arguments>
+<arg>-trustAllSSLCertificates</arg>
+</arguments>
+<msg timestamp="20140407 15:25:16.269" level="INFO">Selenium Server started with command "java -jar c:\Python27\lib\site-packages\SeleniumLibrary\lib\selenium-server.jar -port 4444 -trustAllSSLCertificates -userExtensions c:\Python27\lib\site-packages\SeleniumLibrary\lib\user-extensions.js -firefoxProfileTemplate c:\Python27\lib\site-packages\SeleniumLibrary\firefoxprofile"</msg>
+<msg timestamp="20140407 15:25:16.269" html="yes" level="INFO">Selenium server log is written to &lt;a href="file://C:/Users/fkhan/Downloads/afklm-demo/afklm_tests/CJ/selenium_server_log.txt"&gt;C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\CJ\selenium_server_log.txt&lt;/a&gt;.</msg>
+<status status="PASS" endtime="20140407 15:25:16.270" starttime="20140407 15:25:16.259"></status>
+</kw>
+<status status="PASS" endtime="20140407 15:25:16.270" starttime="20140407 15:25:16.258"></status>
+</kw>
+<kw type="kw" name="cj_resources.Open CJ HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${CJ_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20140407 15:25:21.154" level="INFO">Opening browser 'googlechrome' to base url 'http://cj.mobileaware.com'</msg>
+<status status="PASS" endtime="20140407 15:25:21.154" starttime="20140407 15:25:16.271"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Maximize Browser Window" timeout="">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140407 15:25:21.172" starttime="20140407 15:25:21.154"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Title Should Be" timeout="">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>CityJet</arg>
+</arguments>
+<msg timestamp="20140407 15:25:21.257" level="INFO">Page title is 'CityJet'.</msg>
+<status status="PASS" endtime="20140407 15:25:21.257" starttime="20140407 15:25:21.172"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Set Selenium Speed" timeout="">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" endtime="20140407 15:25:21.279" starttime="20140407 15:25:21.257"></status>
+</kw>
+<status status="PASS" endtime="20140407 15:25:21.279" starttime="20140407 15:25:16.270"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Page Should Contain" timeout="">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Dear Passenger,</arg>
+</arguments>
+<msg timestamp="20140407 15:25:22.299" level="INFO">Current page contains text 'Dear Passenger,'.</msg>
+<status status="PASS" endtime="20140407 15:25:22.299" starttime="20140407 15:25:21.280"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140407 15:25:22.306" critical="yes" starttime="20140407 15:25:16.257"></status>
+</test>
+<doc>CJ Alive
+</doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140407 15:25:22.308" starttime="20140407 15:25:16.145"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="Cj Alive">Cj Alive</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

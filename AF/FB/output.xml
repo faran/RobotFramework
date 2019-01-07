@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130123 18:41:54.054" generator="Robot 2.7.5 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\FB\af_flying_blue_login_logout.txt" id="s1" name="Af Flying Blue Login Logout">
+<test id="s1-t1" timeout="" name="Fb sign in sign out">
+<kw type="kw" name="Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<msg timestamp="20130123 18:41:54.084" level="FAIL">No keyword with name 'Test Setup' found.</msg>
+<status status="FAIL" endtime="20130123 18:41:54.084" starttime="20130123 18:41:54.084"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>FB</tag>
+</tags>
+<status status="FAIL" endtime="20130123 18:41:54.084" critical="yes" starttime="20130123 18:41:54.084">No keyword with name 'Test Setup' found.</status>
+</test>
+<doc>Flying blue login logut flow
+</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20130123 18:41:54.094" starttime="20130123 18:41:54.054"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">FB</stat>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Af Flying Blue Login Logout">Af Flying Blue Login Logout</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20130123 18:41:54.084" level="ERROR">Error in file 'C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\FB\af_flying_blue_login_logout.txt' in table 'Settings': Resource file 'common_resource.txt' does not exist.</msg>
+</errors>
+</robot>

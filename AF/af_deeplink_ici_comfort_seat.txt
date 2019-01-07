@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI Comfort Seat Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI CS
+		[Tags]    DLINK
+		Test Setup
+		ICI-Comfort-Seat

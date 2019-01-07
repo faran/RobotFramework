@@ -1,0 +1,12 @@
+*** Settings ***
+
+Documentation  STOP Sel Server.
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+
+*** Test Cases ***
+Stop Server
+	Stop Selenium Server

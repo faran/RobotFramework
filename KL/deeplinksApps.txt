@@ -1,0 +1,14 @@
+Economy Return Indirect 1 Adult 1 child
+/ebtApp.htm?children[0].date=2007-11-02&jmsClass=0&ebtForm1.nbPassenger=2&ebtForm1.calendarSearch=true&ebtForm1.departDate=2014-05-30&ebtForm1.returnDate=2014-09-30&ebtForm1.fromAirportCode=AMS&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=2
+
+Economy Return Indirect 1 Adult 1 child
+/ebtApp.htm?children[0].date=2007-11-02&jmsClass=0&ebtForm1.nbPassenger=2&ebtForm1.calendarSearch=true&ebtForm1.departDate=2014-05-30&ebtForm1.returnDate=2014-09-30&ebtForm1.fromAirportCode=AMS&ebtForm1.toAirportCode=JFK
+
+Economy One way Direct 1 Adult 1 child
+http://klmtest.mobileaware.com/liveklm/ebtApp.htm?ebtForm1.nbPassenger=2&ebtForm1.calendarSearch=true&ebtForm1.departDate=2014-05-30&ebtForm1.fromAirportCode=AMS&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=1&jmsClass=0
+
+Economy One way Indirect
+http://klmtest.mobileaware.com/liveklm/ebtApp.htm?ebtForm1.nbPassenger=2&ebtForm1.calendarSearch=true&ebtForm1.departDate=2014-05-30&ebtForm1.fromAirportCode=AMS&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=2&jmsClass=0
+
+Biz Return Indirect 1 adult 1 child
+http://klmtest.mobileaware.com/liveklm/ebtApp.htm?children[0].date=2007-11-02&ebtForm1.nbPassenger=2&ebtForm1.calendarSearch=true&ebtForm1.departDate=2014-05-30&ebtForm1.returnDate=2014-09-30&ebtForm1.fromAirportCode=AMS&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=2&jmsClass=1

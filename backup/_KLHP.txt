@@ -1,0 +1,12 @@
+*** Settings ***
+
+Documentation  A test suite with a single test for opening KL home page. This test has
+...            a workflow that is created using keywords from the resource file.
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+
+KL Home Page
+    Open KL HP
+    [Teardown]  Close Browser

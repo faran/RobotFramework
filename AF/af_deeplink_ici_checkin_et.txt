@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI ET Checkin Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI ET
+		[Tags]    DLINK
+		Test Setup
+		ICI-ET

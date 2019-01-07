@@ -1,0 +1,18 @@
+*** Settings ***
+
+Documentation  CJ Flight Status by flight number
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+AF7507
+	Test Setup
+	Open CJ HP
+	Open Flight Status
+	Input Flight Number		7507
+	Click search
+	Click new search
+	Click Home Header
+	
+	

@@ -1,0 +1,56 @@
+*** Settings ***
+
+Documentation  AF TTT PARIS - MADRID 
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+
+AF EBT
+	Start Selenium Server
+		[Tags]		QReg
+		
+		
+		
+		
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language		English
+		Click Choose Language
+		
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	MAD
+		
+		Click next month dep
+		Click last date on dep calendar
+		
+		Click next month rtn
+		Click last date on return calendar
+		
+		
+		
+		
+		Submit Search
+		#eb2
+		Submit Search
+		#ebt45
+		Submit Search
+		#summary
+		#ttt
+		Click Buy TTT option
+		Click Submit TTT option
+		
+		
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+	Close Browser
+	Stop Selenium Server

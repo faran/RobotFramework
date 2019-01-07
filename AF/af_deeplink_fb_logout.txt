@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF Flying Blue Logout Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+FB
+		[Tags]    DLINK
+		Test Setup
+		FB-Logout

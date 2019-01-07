@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  CJ Destinations
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CJ
+	Test Setup
+	Open CJ HP
+	Select Destinations
+	Click Home Header Destination

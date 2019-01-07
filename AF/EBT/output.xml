@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20120831 13:35:55.944" generator="Robot 2.7.3 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\EBT\af_ebt_default_options.txt" id="s1" name="Af Ebt Default Options">
+<metadata>
+</metadata>
+<test id="s1-t1" timeout="" name="AF EBT">
+<kw type="kw" name="af_resource.Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Start Selenium Server" timeout="">
+<doc>Starts the Selenium Server provided with SeleniumLibrary.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20120831 13:35:56.076" level="INFO">Selenium Server started with command "java -jar c:\Python27\lib\site-packages\SeleniumLibrary\lib\selenium-server.jar -port 4444 -userExtensions c:\Python27\lib\site-packages\SeleniumLibrary\lib\user-extensions.js -firefoxProfileTemplate c:\Python27\lib\site-packages\SeleniumLibrary\firefoxprofile"</msg>
+<msg timestamp="20120831 13:35:56.076" html="yes" level="INFO">Selenium server log is written to &lt;a href="file://C:/Users/fkhan/Downloads/afklm-demo/afklm_tests/AF/EBT/selenium_server_log.txt"&gt;C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\EBT\selenium_server_log.txt&lt;/a&gt;.</msg>
+<status status="PASS" endtime="20120831 13:35:56.076" starttime="20120831 13:35:56.064"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:35:56.076" starttime="20120831 13:35:56.063"></status>
+</kw>
+<kw type="kw" name="af_resource.Open AF EBT" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${AF_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:04.707" level="INFO">Opening browser 'googlechrome' to base url 'http://localhost:8080/af'</msg>
+<status status="PASS" endtime="20120831 13:36:04.707" starttime="20120831 13:35:56.077"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Go To" timeout="">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${AF_EBT}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:11.738" level="INFO">Opening url 'http://localhost:8080/af/ebt.htm'</msg>
+<status status="PASS" endtime="20120831 13:36:11.738" starttime="20120831 13:36:04.707"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:11.738" starttime="20120831 13:35:56.076"></status>
+</kw>
+<kw type="kw" name="af_resource.Input From" timeout="">
+<doc></doc>
+<arguments>
+<arg>CDG</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>from</arg>
+<arg>${airportFrom}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:11.756" level="INFO">Typing text 'CDG' into text field 'from'</msg>
+<status status="PASS" endtime="20120831 13:36:11.757" starttime="20120831 13:36:11.739"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:11.757" starttime="20120831 13:36:11.739"></status>
+</kw>
+<kw type="kw" name="af_resource.Input To" timeout="">
+<doc></doc>
+<arguments>
+<arg>SYD</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>to</arg>
+<arg>${airportTo}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:11.783" level="INFO">Typing text 'SYD' into text field 'to'</msg>
+<status status="PASS" endtime="20120831 13:36:11.783" starttime="20120831 13:36:11.758"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:11.784" starttime="20120831 13:36:11.757"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20120831 13:36:24.953" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20120831 13:36:24.953" starttime="20120831 13:36:11.785"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120831 13:36:24.965" starttime="20120831 13:36:24.953"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:24.966" starttime="20120831 13:36:11.784"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20120831 13:36:35.902" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20120831 13:36:35.903" starttime="20120831 13:36:24.967"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120831 13:36:35.914" starttime="20120831 13:36:35.903"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:35.915" starttime="20120831 13:36:24.966"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20120831 13:36:42.885" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20120831 13:36:42.885" starttime="20120831 13:36:35.916"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120831 13:36:42.900" starttime="20120831 13:36:42.885"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:42.901" starttime="20120831 13:36:35.915"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.117" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20120831 13:36:55.117" starttime="20120831 13:36:42.902"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120831 13:36:55.540" starttime="20120831 13:36:55.117"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.540" starttime="20120831 13:36:42.901"></status>
+</kw>
+<kw type="kw" name="af_resource.Input LastName" timeout="">
+<doc></doc>
+<arguments>
+<arg>Blog</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].lastname</arg>
+<arg>${lname}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.565" level="INFO">Typing text 'Blog' into text field 'passengerDetails[0].lastname'</msg>
+<status status="PASS" endtime="20120831 13:36:55.565" starttime="20120831 13:36:55.542"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.565" starttime="20120831 13:36:55.541"></status>
+</kw>
+<kw type="kw" name="af_resource.Input FirstName" timeout="">
+<doc></doc>
+<arguments>
+<arg>John</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].firstname</arg>
+<arg>${fname}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.729" level="INFO">Typing text 'John' into text field 'passengerDetails[0].firstname'</msg>
+<status status="PASS" endtime="20120831 13:36:55.729" starttime="20120831 13:36:55.668"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.729" starttime="20120831 13:36:55.667"></status>
+</kw>
+<kw type="kw" name="af_resource.Input telephone" timeout="">
+<doc></doc>
+<arguments>
+<arg>090909009</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].countryCallingPhone</arg>
+<arg>${cnumber}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.769" level="INFO">Typing text '090909009' into text field 'passengerDetails[0].countryCallingPhone'</msg>
+<status status="PASS" endtime="20120831 13:36:55.769" starttime="20120831 13:36:55.730"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.769" starttime="20120831 13:36:55.730"></status>
+</kw>
+<kw type="kw" name="af_resource.Input email" timeout="">
+<doc></doc>
+<arguments>
+<arg>Johh.blog@mobileaware.com</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].email</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.785" level="INFO">Typing text 'Johh.blog@mobileaware.com' into text field 'passengerDetails[0].email'</msg>
+<status status="PASS" endtime="20120831 13:36:55.785" starttime="20120831 13:36:55.770"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.786" starttime="20120831 13:36:55.770"></status>
+</kw>
+<kw type="kw" name="af_resource.Check termsandcondition" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Select Checkbox" timeout="">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>pricingAccepted</arg>
+</arguments>
+<msg timestamp="20120831 13:36:55.821" level="INFO">Selecting checkbox 'pricingAccepted'.</msg>
+<status status="PASS" endtime="20120831 13:36:55.821" starttime="20120831 13:36:55.787"></status>
+</kw>
+<status status="PASS" endtime="20120831 13:36:55.821" starttime="20120831 13:36:55.786"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20120831 13:37:11.593" level="INFO">Clicking button 'submit'.</msg>
+<msg timestamp="20120831 13:37:11.593" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20120831 13:37:11.595" level="FAIL">Timed out after 15000.0ms</msg>
+<status status="FAIL" endtime="20120831 13:37:11.595" starttime="20120831 13:36:55.822"></status>
+</kw>
+<status status="FAIL" endtime="20120831 13:37:11.595" starttime="20120831 13:36:55.822"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>QReg</tag>
+</tags>
+<status status="FAIL" endtime="20120831 13:37:11.596" critical="yes" starttime="20120831 13:35:56.062">Timed out after 15000.0ms</status>
+</test>
+<doc>This test case book a flight till payments detail page from CDG to AMS with All default options.
+This test has a workflow that is created using keywords from the html_resource file.</doc>
+<status status="FAIL" endtime="20120831 13:37:11.597" starttime="20120831 13:35:55.944"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">QReg</stat>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Af Ebt Default Options">Af Ebt Default Options</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

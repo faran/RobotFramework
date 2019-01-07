@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130129 13:00:52.860" generator="Robot 2.7.5 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\test.txt" id="s1" name="Test">
+<test id="s1-t1" timeout="" name="EBT pay by phone default options">
+<kw type="kw" name="af_resource.Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Start Selenium Server" timeout="">
+<doc>Starts the Selenium Server provided with SeleniumLibrary.</doc>
+<arguments>
+<arg>-trustAllSSLCertificates</arg>
+<arg>-Dhttp.proxyPort=8888</arg>
+<arg>-Dhttp.proxyHost=localhost</arg>
+</arguments>
+<msg timestamp="20130129 13:00:53.070" level="INFO">Selenium Server started with command "java -jar c:\Python27\lib\site-packages\SeleniumLibrary\lib\selenium-server.jar -port 4444 -trustAllSSLCertificates -Dhttp.proxyPort=8888 -Dhttp.proxyHost=localhost -userExtensions c:\Python27\lib\site-packages\SeleniumLibrary\lib\user-extensions.js -firefoxProfileTemplate c:\Python27\lib\site-packages\SeleniumLibrary\firefoxprofile"</msg>
+<msg timestamp="20130129 13:00:53.070" html="yes" level="INFO">Selenium server log is written to &lt;a href="file://C:/Users/fkhan/Downloads/afklm-demo/afklm_tests/AF/ryRun/selenium_server_log.txt"&gt;C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\ryRun\selenium_server_log.txt&lt;/a&gt;.</msg>
+<status status="PASS" endtime="20130129 13:00:53.070" starttime="20130129 13:00:53.059"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:00:53.071" starttime="20130129 13:00:53.058"></status>
+</kw>
+<kw type="kw" name="af_resource.Open AF EBT" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${AF_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20130129 13:00:59.024" level="INFO">Opening browser 'googlechrome' to base url 'http://af24.mobileaware.com/liveaf/index.htm?lang=fr_fr'</msg>
+<status status="PASS" endtime="20130129 13:00:59.024" starttime="20130129 13:00:53.072"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Maximize Browser Window" timeout="">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:00:59.042" starttime="20130129 13:00:59.025"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Go To" timeout="">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${AF_EBT}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:02.644" level="INFO">Opening url 'http://af24.mobileaware.com/liveaf/ebt.htm'</msg>
+<status status="PASS" endtime="20130129 13:01:02.644" starttime="20130129 13:00:59.043"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:02.644" starttime="20130129 13:00:53.071"></status>
+</kw>
+<kw type="kw" name="af_resource.Click change country" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Link" timeout="">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>choose.htm</arg>
+</arguments>
+<msg timestamp="20130129 13:01:05.420" level="INFO">Clicking link 'choose.htm'.</msg>
+<status status="PASS" endtime="20130129 13:01:05.420" starttime="20130129 13:01:02.646"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:05.420" starttime="20130129 13:01:02.645"></status>
+</kw>
+<kw type="kw" name="af_resource.Select Country" timeout="">
+<doc></doc>
+<arguments>
+<arg>France</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Select From List" timeout="">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>country</arg>
+<arg>${cntry}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:05.441" level="INFO">Selecting values 'France' from list 'country'.</msg>
+<status status="PASS" endtime="20130129 13:01:05.442" starttime="20130129 13:01:05.421"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:05.442" starttime="20130129 13:01:05.421"></status>
+</kw>
+<kw type="kw" name="af_resource.Click Choose Country" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//form[@id='chooseForm1']/table[2]/tbody/tr[2]/td/input</arg>
+</arguments>
+<msg timestamp="20130129 13:01:06.692" level="INFO">Clicking image 'xpath=//form[@id='chooseForm1']/table[2]/tbody/tr[2]/td/input'.</msg>
+<status status="PASS" endtime="20130129 13:01:06.692" starttime="20130129 13:01:05.443"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:06.718" starttime="20130129 13:01:06.693"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:06.718" starttime="20130129 13:01:05.442"></status>
+</kw>
+<kw type="kw" name="af_resource.Click Choose Language" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//form[@id='chooseForm2']/table[2]/tbody/tr[2]/td/input</arg>
+</arguments>
+<msg timestamp="20130129 13:01:07.756" level="INFO">Clicking image 'xpath=//form[@id='chooseForm2']/table[2]/tbody/tr[2]/td/input'.</msg>
+<status status="PASS" endtime="20130129 13:01:07.756" starttime="20130129 13:01:06.719"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:07.769" starttime="20130129 13:01:07.757"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:07.769" starttime="20130129 13:01:06.719"></status>
+</kw>
+<kw type="kw" name="af_resource.Click Purchase a Ticket" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>css=span.af2exbutton</arg>
+<arg>,and don't wait</arg>
+</arguments>
+<msg timestamp="20130129 13:01:07.788" level="INFO">Clicking image 'css=span.af2exbutton'.</msg>
+<status status="PASS" endtime="20130129 13:01:07.789" starttime="20130129 13:01:07.771"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:07.789" starttime="20130129 13:01:07.770"></status>
+</kw>
+<kw type="kw" name="af_resource.Open EBT from HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=html/body/div[2]/div/div/div/div[6]/div[3]/div/div/div/a</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.090" level="INFO">Clicking image 'xpath=html/body/div[2]/div/div/div/div[6]/div[3]/div/div/div/a'.</msg>
+<status status="PASS" endtime="20130129 13:01:11.090" starttime="20130129 13:01:07.790"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:11.102" starttime="20130129 13:01:11.091"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.102" starttime="20130129 13:01:07.789"></status>
+</kw>
+<kw type="kw" name="af_resource.Input From" timeout="">
+<doc></doc>
+<arguments>
+<arg>CDG</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>from</arg>
+<arg>${airportFrom}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.120" level="INFO">Typing text 'CDG' into text field 'from'</msg>
+<status status="PASS" endtime="20130129 13:01:11.120" starttime="20130129 13:01:11.103"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.120" starttime="20130129 13:01:11.103"></status>
+</kw>
+<kw type="kw" name="af_resource.Input To" timeout="">
+<doc></doc>
+<arguments>
+<arg>LHR</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>to</arg>
+<arg>${airportTo}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.140" level="INFO">Typing text 'LHR' into text field 'to'</msg>
+<status status="PASS" endtime="20130129 13:01:11.141" starttime="20130129 13:01:11.122"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.141" starttime="20130129 13:01:11.121"></status>
+</kw>
+<kw type="kw" name="af_resource.Click next month dep" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//img[@id='departureCal_nextMonthBtn']</arg>
+<arg>,and dont't wait</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.164" level="INFO">Clicking image 'xpath=//img[@id='departureCal_nextMonthBtn']'.</msg>
+<status status="PASS" endtime="20130129 13:01:11.164" starttime="20130129 13:01:11.142"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.164" starttime="20130129 13:01:11.141"></status>
+</kw>
+<kw type="kw" name="af_resource.Click last date on dep calendar" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div</arg>
+<arg>,and don't wait</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.232" level="INFO">Clicking image 'xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div'.</msg>
+<status status="PASS" endtime="20130129 13:01:11.232" starttime="20130129 13:01:11.165"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.232" starttime="20130129 13:01:11.165"></status>
+</kw>
+<kw type="kw" name="af_resource.Click next month rtn" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//img[@id='returnCal_nextMonthBtn']</arg>
+<arg>,and dont't wait</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.285" level="INFO">Clicking image 'xpath=//img[@id='returnCal_nextMonthBtn']'.</msg>
+<status status="PASS" endtime="20130129 13:01:11.285" starttime="20130129 13:01:11.234"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.285" starttime="20130129 13:01:11.233"></status>
+</kw>
+<kw type="kw" name="af_resource.Click last date on return calendar" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div</arg>
+<arg>,and dont't wait</arg>
+</arguments>
+<msg timestamp="20130129 13:01:11.323" level="INFO">Clicking image 'xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div'.</msg>
+<status status="PASS" endtime="20130129 13:01:11.323" starttime="20130129 13:01:11.286"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:11.323" starttime="20130129 13:01:11.286"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20130129 13:01:17.429" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20130129 13:01:17.429" starttime="20130129 13:01:11.324"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:17.445" starttime="20130129 13:01:17.429"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:17.445" starttime="20130129 13:01:11.323"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20130129 13:01:30.249" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20130129 13:01:30.250" starttime="20130129 13:01:17.447"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:30.263" starttime="20130129 13:01:30.250"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:30.263" starttime="20130129 13:01:17.446"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20130129 13:01:35.989" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20130129 13:01:35.990" starttime="20130129 13:01:30.264"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:36.000" starttime="20130129 13:01:35.990"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:36.000" starttime="20130129 13:01:30.264"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.339" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20130129 13:01:46.340" starttime="20130129 13:01:36.001"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:46.371" starttime="20130129 13:01:46.340"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.371" starttime="20130129 13:01:36.001"></status>
+</kw>
+<kw type="kw" name="af_resource.Input LastName" timeout="">
+<doc></doc>
+<arguments>
+<arg>Blog</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].lastname</arg>
+<arg>${lname}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.385" level="INFO">Typing text 'Blog' into text field 'passengerDetails[0].lastname'</msg>
+<status status="PASS" endtime="20130129 13:01:46.385" starttime="20130129 13:01:46.372"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.385" starttime="20130129 13:01:46.371"></status>
+</kw>
+<kw type="kw" name="af_resource.Input FirstName" timeout="">
+<doc></doc>
+<arguments>
+<arg>John</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].firstname</arg>
+<arg>${fname}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.410" level="INFO">Typing text 'John' into text field 'passengerDetails[0].firstname'</msg>
+<status status="PASS" endtime="20130129 13:01:46.410" starttime="20130129 13:01:46.388"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.410" starttime="20130129 13:01:46.387"></status>
+</kw>
+<kw type="kw" name="af_resource.Input telephone" timeout="">
+<doc></doc>
+<arguments>
+<arg>090909009</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].countryCallingPhone</arg>
+<arg>${cnumber}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.422" level="INFO">Typing text '090909009' into text field 'passengerDetails[0].countryCallingPhone'</msg>
+<status status="PASS" endtime="20130129 13:01:46.422" starttime="20130129 13:01:46.411"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.422" starttime="20130129 13:01:46.411"></status>
+</kw>
+<kw type="kw" name="af_resource.Input email" timeout="">
+<doc></doc>
+<arguments>
+<arg>Johh.blog@mobileaware.com</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].email</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.446" level="INFO">Typing text 'Johh.blog@mobileaware.com' into text field 'passengerDetails[0].email'</msg>
+<status status="PASS" endtime="20130129 13:01:46.446" starttime="20130129 13:01:46.426"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.446" starttime="20130129 13:01:46.425"></status>
+</kw>
+<kw type="kw" name="af_resource.Input confirm-email" timeout="">
+<doc></doc>
+<arguments>
+<arg>Johh.blog@mobileaware.com</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>passengerDetails[0].confirmEmail</arg>
+<arg>${cemail}</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.465" level="INFO">Typing text 'Johh.blog@mobileaware.com' into text field 'passengerDetails[0].confirmEmail'</msg>
+<status status="PASS" endtime="20130129 13:01:46.465" starttime="20130129 13:01:46.447"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.465" starttime="20130129 13:01:46.446"></status>
+</kw>
+<kw type="kw" name="af_resource.Check termsandcondition" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Select Checkbox" timeout="">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>pricingAccepted</arg>
+</arguments>
+<msg timestamp="20130129 13:01:46.494" level="INFO">Selecting checkbox 'pricingAccepted'.</msg>
+<status status="PASS" endtime="20130129 13:01:46.494" starttime="20130129 13:01:46.466"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:46.494" starttime="20130129 13:01:46.466"></status>
+</kw>
+<kw type="kw" name="af_resource.Submit Search" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20130129 13:01:52.316" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20130129 13:01:52.316" starttime="20130129 13:01:46.495"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130129 13:01:52.330" starttime="20130129 13:01:52.316"></status>
+</kw>
+<status status="PASS" endtime="20130129 13:01:52.331" starttime="20130129 13:01:46.495"></status>
+</kw>
+<kw type="kw" name="Input" timeout="">
+<doc></doc>
+<arguments>
+<arg>card-num</arg>
+<arg>4970100000196796</arg>
+</arguments>
+<msg timestamp="20130129 13:01:52.332" level="FAIL">Keyword 'Input' defined multiple times</msg>
+<status status="FAIL" endtime="20130129 13:01:52.332" starttime="20130129 13:01:52.331"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>EBT</tag>
+</tags>
+<status status="FAIL" endtime="20130129 13:01:52.332" critical="yes" starttime="20130129 13:00:53.058">Keyword 'Input' defined multiple times</status>
+</test>
+<doc>TEST
+</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20130129 13:01:52.334" starttime="20130129 13:00:52.860"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">EBT</stat>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

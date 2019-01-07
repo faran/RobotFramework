@@ -1,0 +1,557 @@
+﻿*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            for KLM Mobile App. 
+...            
+...             
+...            common_resource.txt is used to select which one to use.
+
+
+*** Variables ***
+
+@{countries}=		Argentina	Aruba	Austria	Belgium	Bonaire	Brazil	Canada	China	Curacao	Denmark	Finland	France	Germany	Greece	Hong Kong	Hungary	India	Indonesia	Ireland	Israel	Italy	Japan	Kazakhstan	Kenya	Korea	Malaysia	Mexico	Norway	Peru	Philippines	Poland	Portugal	Romania	Russia	Saudi Arabia	Sint Maarten	Singapore	South Africa	Spain	Sweden	Switzerland	Taiwan	Thailand	UAE	UK	USA
+${KL_HP}     http://${SERVER}
+${KL_EBT}    http://${SERVER}/ebt.htm
+
+${Flight_Number}	1575
+${PNR_Code}		2HNJ6E
+${Last_Name}	BRUIJS
+${Airline_Code}
+
+${Sur_Name}
+${E-tkt}
+
+
+*** Keywords ***
+Random Numbers 
+	${random_numbers} =		Generate Random String	5	[NUMBERS]
+	
+Test Setup		Start Selenium Server	-trustAllSSLCertificates
+
+Test Teardown	Stop Selenium Server
+
+
+=== KLM Deeplinks ===
+
+EBT-1
+	#${dd} =	Get Time	day		NOW + 7d
+	#${rd} =	Get Time	day		NOW + 8d
+	
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+		
+	Open Browser	${KL_HP}/ebt.htm?lang=nl_NL&goToPage=home_return&cffcc=ECONOMY&c[0].os=AMS&c[0].ds=AUA&c[0].dd=${date}&c[1].os=AUA&c[1].dd=${date}&adtQty=3&chdQty=1&infQty=3&flex=False&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Vlucht boeken
+	Page Should Contain	Zoek rond deze data (+/- 3 dagen)
+	
+EBT-2
+	#${dd} =	Get Time	day		NOW + 7d
+	#${rd} =	Get Time	day		NOW + 8d
+	
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/ebt.htm?lang=en_NL&goToPage=calendar&cfcc=ECONOMY&c[0].os=AMS&c[0].ost=AIRPORT&c[0].ds=JFK&c[0].dst=CITY&c[0].dd=${date}&c[1].os=JFK&c[1].ost=CITY&c[1].ds=AMS&c[1].dst=AIRPORT&c[1].dd=${date}&adtQty=3&chdQty=1&infQty=3&chds[0].dateOfBirth=2008-07-15&infs[0].dateOfBirth=2013-01-01&infs[1].dateOfBirth=2013-01-01&infs[2].dateOfBirth=2013-01-01&flex=False&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Book Flight
+	Page Should Contain	Best offer for selected travel dates:
+			
+EBT-3
+	#${dd} =	Get Time	day		NOW + 7d
+	#${rd} =	Get Time	day		NOW + 8d
+	
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/ebt.htm?lang=en_US&goToPage=shopping_cart&frame=b2c&mp=KYUS&cffcc=ECONOMY&adtQty=1&chdQty=0&infQty=0&dev=5&cur=USD&tp=863.29&tf=345.00&c[0].os=JFK&c[0].dd=${date}&c[0].s[0].os=JFK&c[0].s[0].ds=AMS&c[0].s[0].dd=${date}&c[0].s[0].dt=2250&c[0].s[0].mc=KL&c[0].s[0].fn=0644&c[0].ds=AMS&c[1].os=AMS&c[1].dd=${date}&c[1].s[0].os=AMS&c[1].s[0].ds=JFK&c[1].s[0].dd=${date}&c[1].s[0].dt=1325&c[1].s[0].mc=KL&c[1].s[0].fn=0641&c[1].ds=JFK&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Book Flight
+	Page Should Contain	Best options for these dates are:
+	
+EBT-4
+	#${dd} =	Get Time	day		NOW + 7d
+	#${rd} =	Get Time	day		NOW + 8d
+	
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/ebt_home.htm?lang=en_FR&goToPage=customize&frame=b2c&pos=FR&mp=KY&msp=Kayak&cffcc=ECONOMY&adtQty=1&chdQty=0&infQty=0&dev=5&cur=EUR&tp=167.76&tf=36.00&c[0].os=CDG&c[0].dd=${date}&c[0].s[0].os=CDG&c[0].s[0].ds=AMS&c[0].s[0].dd=${date}&c[0].s[0].dt=0900&c[0].s[0].mc=KL&c[0].s[0].fn=1224&c[0].ds=AMS&c[1].os=AMS&c[1].dd=${date}&c[1].s[0].os=AMS&c[1].s[0].ds=CDG&c[1].s[0].dd=${date}&c[1].s[0].dt=1355&c[1].s[0].mc=KL&c[1].s[0].fn=2009&c[1].ds=CDG&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Book Flight
+	Page Should Contain	Flights
+	Page Should Contain	Ticket conditions
+	
+
+EBT-DEEPLINK
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/ebtApp.htm?ebtForm1.nbPassenger=3&children[0].date=2005-05-20&ebtForm1.calendarSearch=true&ebtForm1.departDate=${date}&ebtForm1.returnDate=${date}&ebtForm1.fromAirportCode=CDG&ebtForm1.toAirportCode=JFK&ebtForm1.tripType=2&jmsClass=0&lang=en_NL&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Book Flight
+	Page Should Contain		Because of the country of departure you have chosen (France), all prices will be shown in EUR. Our local KLM Ticket Office will send you your ticket.
+	
+minutes
+	${mm} =		Get Time	return min
+	
+	
+FS-1
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/statusApp.htm?arrivDept=D&destination=JFK&carrier=KL&origin=AMS&lang=en_GB&date=${date}&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Flight status
+
+FS-2
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+    ${date}    Set Variable    ${yyyy}-${mm}-${dd}
+	
+	Open Browser	${KL_HP}/statusApp.htm?flightNumber=2002&date=${date}&arrivDept=D&carrier=AF&lang=en_GB&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Flight status
+
+OTT-1
+	${yyyy}    ${mm}    ${dd} =   GetTime	year,month,day
+	
+	Open Browser	${KL_HP}/ottApp.htm?from=AMS&to=JFK&tripType=2&departDate.day=${dd}&departDate.yearMonth=${yyyy}${mm}&returnDate.day=${dd}&returnDate.yearMonth=${yyyy}${mm}&Lang=nl_NL&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be  Timetable
+	Page Should Contain	Departure flights in the week of
+	
+FB-Login
+	Open Browser	${KL_HP}/fb.htm?user=2058018534&pincode=5655&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be		My profile
+	Page Should Contain		FARAN KHAN
+	
+FB-Logout
+	Open Browser	${KL_HP}/fb2.htm?user=2058018534&pincode=5655&MobileAwareApp=gmkl	${BROWSER}
+	Maximize Browser Window
+	Title Should Be		KLM Mobile
+	
+ICI
+	Open Browser	${KL_HP}/iciApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=KL&flightNumber=${Flight_Number}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check in
+	
+ICI-Seatmap
+	Open Browser	${KL_HP}/iciSeatApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=KL&flightNumber=${Flight_Number}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check in
+
+ICI-ABA
+	Open Browser	${KL_HP}/iciAbaApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=KL&flightNumber=${Flight_Number}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check in
+
+ICI-Comfort-Seat
+	Open Browser	${KL_HP}/iciComfortSeatApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=KL&flightNumber=${Flight_Number}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check in
+
+CCI
+	Open Browser	${KL_HP}/iciCancelApp.htm?idType=PNR&code=${PNR_Code}&airlineCode=KL&flightNumber=${Flight_Number}&lastName=${Last_Name}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Check in
+	
+FAQ
+	Open Browser	${KL_HP}/faqApp.htm?question.text="where is my baggage"&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	Title Should Be		Ask your question
+	
+MMB
+	Open Browser	${KL_HP}/mmbApp.htm?bookingNumber=${PNR_Code}&bookingSurname=${Last_Name}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+	
+MMB-Seat
+	Open Browser	${KL_HP}/mmbSeatApp.htm?bookingNumber=${PNR_Code}&bookingSurname=${Last_Name}&MobileAwareApp=gmkl		${BROWSER}
+	Maximize Browser Window
+
+
+=== KLM Home Page ===
+
+Open KL HP
+	Open Browser  ${KL_HP}  ${BROWSER}
+	Maximize Browser Window
+    Title Should Be  KLM Mobile
+
+Click Home from header
+	Click Image		xpath=//a[contains(@href, 'home.htm')]
+	Wait Until Page Loaded
+	
+Click Change country	
+	Click Image		xpath=(//a[contains(@href,'choose.htm')])[2]
+	Wait Until Page Loaded
+	
+Select Country	[Arguments]  ${cntry}
+	Select From List	country	${cntry}
+
+	
+Click Choose Country Select
+	Click Image		xpath=//input[@name='submit']
+	Wait Until Page Loaded
+
+Select Language	[Arguments]  ${lang}
+	Select From List	language	${lang}
+
+Click Choose Language Select
+	${tit}=	Get Title
+	Run Keyword If	'${tit}' == 'Choose country'		Click Image		xpath=//input[@name='submit']
+	
+Open EBT from HP
+	Click Image		xpath=//div[@id='yy0']/a/table/tbody/tr/td[2]
+	Wait Until Page Loaded
+	
+Open FB from HP
+	Click Image		xpath=//div[@id='yy3']/a/table/tbody/tr/td[2]
+	Wait Until Page Loaded
+
+Open FI from HP
+	Click Image		xpath=//div[@id='yy2']/a/table/tbody/tr/td[2]	,and don't wait
+	#/html/body[@id='body']/div[@class='bodyWrapper']/div[@id='dh']/div[@class='k3o']/div[@id='yy2']/a/table/tbody/tr/td[@class='k3t']
+	#/html/body/div[2]/div/div[3]/div[4]/a/table/tbody/tr/td[2]
+	
+Open FS
+	Click Image 	xpath=//img[@alt='Flight status']
+	#//div[@id='xx2']/table/tbody/tr/td[2]/div[2]/a/img
+	Wait Until Page Loaded
+
+Open OTT
+	Click Image 	xpath=//img[@alt='Timetable']
+	Wait Until Page Loaded
+
+Open Contact us
+	Click Image		xpath=(//a[contains(@href, 'contacts.htm')])[2]
+	Wait Until Page Loaded
+	
+=== EBT ===
+	
+Open KL EBT
+	Open Browser  ${KL_HP}  ${BROWSER}
+    Go TO	${KL_EBT}
+	
+#wont work with open departure box
+#Select From  [Arguments]  ${airportFrom}
+    #Select From List	from	${airportFrom}
+
+Select From  [Arguments]  ${airportFrom}
+    Input Text	from	${airportFrom}
+
+Input From  [Arguments]  ${airportFrom}
+    Input Text  from  ${airportFrom}	
+	
+Input To  [Arguments]  ${airportTo}
+    Input Text  to  ${airportTo}
+
+Input Origin  [Arguments]  ${airportOrigin}
+    Input Text  origin  ${airportOrigin}	
+	
+Input Destination  [Arguments]  ${airportDestination}
+    Input Text  destination  ${airportDestination}	
+	
+Select One-Way
+	Click Image		xpath=//div[@id='swcotripType']		,and don't wait
+	
+UnCheck flexible days
+	Unselect Checkbox		xpath=//input[@id='calendarSearch1']
+	
+Check flexible days
+	Select Checkbox		xpath=//input[@id='calendarSearch1']
+	
+Detect PNR
+	${pnr}=	Get Text	css=strong > span
+	[Return]	${pnr}
+
+Select Economy
+	Click Image		xpath=//div[@id='swcocabin']		,and don't wait
+
+Select Business
+	Click Image		xpath=//div[@id='swcocabin']		,and don't wait
+
+Click Add PAX
+	Click Image	css=img.showInput	,and don't wait	
+
+Select PAX  [Arguments]  ${type}	${i}
+    Select From List	paxTypesList${i}	${type}
+	#type can be Adult (15+ year)	Child (2 - 14 year)	Infant (0 -1 year)
+	
+Select dob-date		[Arguments] 	${dobd}		${i}
+		Select From List	children${i}.date.day		${dobd}
+		
+Select dob-month		[Arguments] 	${dobm}		${i}
+		Select From List	children${i}.date.month		${dobm}
+		
+Select dob-year		[Arguments] 	${doby}		${i}
+		Select From List	children${i}.date.year		${doby}	
+
+Submit Search
+    Click Button  submit
+	Wait Until Page Loaded
+	
+Select This Option
+	Click Image		xpath=//input[@name='submitBestOffer']
+	
+Verify TTT Present
+	Page Should Contain Image	xpath=//input[@name='ttt']
+
+Verify Continue Present
+	Page Should Contain Button	xpath=(//input[@name='submit'])[2]
+
+Detect Currency ebt14
+	#${ebt14}=	Call Selenium Api	storeText	css=td.price1
+	${cur14}=	Get Text	xpath=//*[@id="ebt14."]/td[5]
+	#Get Inner Html		xpath=//*[@id="ebt14."]/td[5]
+	[Return]	${cur14}
+	
+Detect Currency ebt45
+	#Call Selenium Api	storeText	xpath=//*[@id="ebtForm45KL"]/div[1]/table[2]/tbody/tr[1]/td[3]
+	${cur45}=	Get Text	xpath=//*[@id="ebtForm45KL"]/div[1]/table[2]/tbody/tr[1]/td[3]
+	#Get Inner Html		xpath=//*[@id="ebtForm45KL"]/div[1]/table[2]/tbody/tr[1]/td[3]
+	[Return]	${cur45}
+
+#Adult i
+Input LastName	[Arguments]	${lname}	${i}
+		Input Text	passengerDetails[${i}].lastname	${lname}
+
+Input FirstName	[Arguments]	${fname}	${i}
+		Input Text	passengerDetails[${i}].firstname	${fname}
+		
+Input email	[Arguments]		${email}
+		Input Text	passengerDetails[0].email	${email}
+		
+Input Confirm Email	[Arguments]		${cemail}
+		Input Text	passengerDetails[0].confirmEmail	${cemail}
+
+Input Tel Number	[Arguments]	${tnumber}
+		Input Text	passengerDetails[0].telNumber1	${tnumber}
+		
+Select Title  [Arguments]  ${title}	${i}
+    Select From List	passengerDetails${i}.title	${title}
+
+Select dd		[Arguments]  ${dd}
+	Select From List	passengerDetails0.dateOfBirth.day	${dd}
+
+Select mm		[Arguments]  ${mm}
+	Select From List	passengerDetails0.dateOfBirth.month	${mm}
+
+Select yyyy		[Arguments]  ${yyyy}
+	Select From List	passengerDetails0.dateOfBirth.year	${yyyy}	
+
+#Child i
+Input LastName1		[Arguments]	${lname}	${i}
+		Input Text	passengerDetails[${i}].lastname	${lname}
+
+Input FirstName1	[Arguments]	${fname}	${i}
+		Input Text	passengerDetails[${i}].firstname	${fname}
+
+Select Title1  [Arguments]  ${title}	${i}
+    Select From List	passengerDetails${i}.title	${title}
+
+Select dd1		[Arguments]  ${dd}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.day	${dd}
+
+Select mm1		[Arguments]  ${mm}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.month	${mm}
+
+Select yyyy1		[Arguments]  ${yyyy}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.year	${yyyy}
+
+#Infant i
+Input LastName2		[Arguments]	${lname}	${i}
+		Input Text	passengerDetails[${i}].lastname	${lname}
+
+Input FirstName2	[Arguments]	${fname}	${i}
+		Input Text	passengerDetails[${i}].firstname	${fname}
+
+Select Title2  [Arguments]  ${title}	${i}
+    Select From List	passengerDetails${i}.title	${title}
+
+Select dd2		[Arguments]  ${dd}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.day	${dd}
+
+Select mm2		[Arguments]  ${mm}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.month	${mm}
+
+Select yyyy2		[Arguments]  ${yyyy}	${i}
+	Select From List	passengerDetails${i}.dateOfBirth.year	${yyyy}
+
+Select PAO
+	Select Checkbox		xpath=//input[@id='paymentTypePAO']
+	
+Select iDeal
+	Select Checkbox		xpath=//input[@id='paymentTypeOLB']
+
+Select PayPal
+	Select Checkbox		xpath=//input[@id='paymentTypeEWALLET']
+	
+Select BT
+	Select Checkbox		xpath=//input[@id='paymentTypeBT']
+
+Input BTFirstName	[Arguments]	${fname}
+	Input Text	paymentTypes[2].bt.name		${fname}
+
+Input BTCity	[Arguments]	${city}
+	Input Text	paymentTypes[2].bt.city		${city}
+	
+Input BTBankCity	[Arguments]	${bcity}
+	Input Text	paymentTypes[2].bt.btCity	${bcity}
+	
+Check termsandcondition
+		Select Checkbox 	acceptTandC1
+
+Confirm Booking
+	Page Should Contain		Your booking is confirmed		
+	
+Confirm Booking Dutch
+	Page Should Contain		Uw boeking is geslaagd
+
+Confirm Booking German
+	Page Should Contain		Ihre Buchung war erfolgreich
+	
+Choose pay-by-phone
+	Select Radio Button		modmopSelected	12_3
+
+Click home-ebt9
+	Click Image		xpath=//input[@name='home']
+	Wait Until Page Loaded
+	
+Click Buy TTT option
+	Click Image		xpath=//input[@name='submitTTTvvsubmitTTT']
+	Wait Until Page Loaded
+	
+Click Submit TTT option
+	Click Image		xpath=//input[@name='submitvvsubmit']
+	Wait Until Page Loaded
+
+Click fb-login
+	Click Image		css=input[name="logInFb"]
+	Wait Until Page Loaded
+
+Click fb-go
+	Click Image		css=div > input[name="submit"]
+	Wait Until Page Loaded
+
+Click need-help
+	Click Image		xpath=//a[@id='needHelp']/span
+	Wait Until Page Loaded
+
+Click back-need-help
+	Click Image 	xpath=//input[@name='back']
+	Wait Until Page Loaded
+	
+Click ESTA
+	Click Image		xpath=//img[@id='ddx1']		,and dont't wait
+	
+=== Calendar ===
+Click next month dep
+	Click Image		xpath=//img[@id='departureCal_nextMonthBtn']	,and dont't wait
+		
+Click next month rtn
+	Click Image		xpath=//img[@id='returnCal_nextMonthBtn']		,and dont't wait
+	
+Click last date on dep calendar
+	Element Should Be Visible	xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div
+	Click Image		xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div		,and don't wait
+	
+Click last date on return calendar
+	Click Image		xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div		,and dont't wait
+
+=== Flying Blue ===
+
+Input FBLogin	[Arguments]	${login}
+	Input Text	username	${login}
+
+Input FBPin	[Arguments]	${pin}
+	Input Password	pinCode		${pin}
+
+Submit log in
+	Click Button	submit
+	Wait Until Page Loaded
+
+Click Mileage Summary
+	Click Image		xpath=//input[@name='summary']
+	Wait Until Page Loaded
+	
+Click Manage My Profile
+	Click Image 	xpath=//input[@name='back']
+	Wait Until Page Loaded
+	
+Click sign out
+	Click Link	Log out
+	
+Confirm Name
+	Page Should Contain		Mr FARAN KHAN
+	
+=== Flight Times ===
+	
+Open FS Destination
+	Click Image		xpath=//div[@id='tabs']/a/img 
+	Wait Until Page Loaded
+	
+Input Departing		[Arguments]	${dest}
+	Input Text	from	${dest}
+	
+Input Arrival		[Arguments]	${arriv}
+	Input Text	to	${arriv}
+	
+Click First flight Return
+	Click Image		xpath=//td[3]/a/b
+	Wait Until Page Loaded
+	
+Click New Search
+	Click Image		xpath=//input[@name='newSearch']
+	Wait Until Page Loaded
+	
+Open FS By Flight Number
+	Click Image		xpath=//div[@id='tabs']/a/img
+	Wait Until Page Loaded
+	
+Input Flight Number		[Arguments]		${numb}
+	Input Text	xpath=//input[@id='flightNumber']		${numb}
+
+Click Confirm
+	Click Image		xpath=//input[@name='confirm']
+	Wait Until Page Loaded
+	
+Click Week Of Day
+	Click Image		xpath=//td[7]/a/span
+	Wait Until Page Loaded
+
+Click New Search OTT
+	Click Image		xpath=//input[@name='newSearch']
+	Wait Until Page Loaded
+
+Click Week of Day OTT
+	Click Image		xpath=//div/a[7]/span
+	Wait Until Page Loaded
+
+Click Return
+	Click Link	xpath=//a[@id='FBLink']
+	
+Verify Return present
+	Page Should Contain Link	FBLink
+
+Verify Departure present
+	Page Should Contain Link	FBLink
+	
+Verify Flight Distance Label
+	Page Should Contain	Element		xpath=(//tr[@id='ott3.']/td)[15]
+
+Verify Flight Distance Label Second Time
+	Page Should Contain Element		xpath=(//tr[@id='ott3.']/td)[31]
+	
+Verify Flight Distance
+	Page Should Contain	Element		xpath=(//tr[@id='ott3.']/td[2])[8]
+	
+Verify Flight Distance Second Time
+	Page Should Contain	Element		xpath=(//tr[@id='ott3.']/td[2])[16]
+	
+Verify separators present
+	Page Should Contain	Element		xpath=//form[@id='ottForm3']/table/tbody/tr[11]/td/span/span
+	
+Verify flight status info
+	Page Should Contain	Element		css=strong
+
+=== Contact Us ===

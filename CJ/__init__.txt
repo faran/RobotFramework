@@ -1,0 +1,6 @@
+*** Settings ***
+Documentation	CityJet Test Suite
+Library         SeleniumLibrary
+Suite Setup     Start Selenium Server
+Suite Teardown  Stop Selenium Server
+Test Teardown	Close Browser

@@ -1,0 +1,63 @@
+*** Settings ***
+
+Documentation  Changing country to FR and lang to EN Booking one way flight with fliexible dates.
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+CDG-LHR
+		[Tags]	EBT
+		[Tags]	  Regression
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		#Select Language		English
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	LHR
+		
+		Choose One-way
+		Click next month dep
+		Click last date on dep calendar
+		
+		
+		#ebt1
+		Submit Search
+		
+		#ebt2
+		Submit Search
+		
+		#upsell
+		Submit Search
+		
+		#summary
+		#Choose pay-by-phone
+		Submit Search
+		
+		#paxdetail
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Input confirm-email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+		
+		Page Should Contain		Montant à payer
+		Page Should Contain Radio Button	css=#creditCardOwner1
+		Page Should Contain Radio Button	css=#creditCardOwner2
+		Select c-type	Carte VISA
+		Input card-num	4970100000196796
+		Select exp-mon	05 - mai
+		Select exp-year		2028
+		Input crypto		123
+		Input c-lname		test
+		Input c-fname		test
+		Input c-addr	test
+		Input c-poscode	12345
+		Input c-city	test

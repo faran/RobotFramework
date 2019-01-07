@@ -1,0 +1,16 @@
+*** Settings ***
+
+Documentation  CJ Alive
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CJ
+	Test Setup
+	Open CJ HP
+	Page Should Contain 	Dear Passenger,
+	
+	
+	
+	

@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  KLM MMB Seatmap Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+
+		[Tags]    DLINK
+		Test Setup
+		MMB-Seat

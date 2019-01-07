@@ -1,0 +1,22 @@
+*** Settings ***
+
+Documentation  CJ Flight Status by Destination
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+DUB-LON
+	Test Setup
+	Open CJ HP
+	Open Flight Status
+	Open By Destination
+	Select From		Dublin
+	Select To		London City
+	Click search
+	Choose Flight
+	Submit Search
+	Click new search
+	Click Home Header
+	
+	

@@ -1,0 +1,20 @@
+*** Settings ***
+
+Documentation  CJ Flight Schedule
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+DUB-LON
+	Test Setup
+	Open CJ HP
+	Open Flight Schedule
+	Select From		Dublin
+	Select To		London City
+	Click Confirm	
+	Click ott-flight
+	Click Home Header
+
+	
+	

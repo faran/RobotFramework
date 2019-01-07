@@ -1,0 +1,88 @@
+﻿
+*** Settings ***
+
+Documentation  Russia MOW-CDG-MOW  CC Validation
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+MOW-CDG-MOW
+		[Tags]	EBT
+		#[Tags]	nightly
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		Russia
+		Click Choose Country
+		#Select Language    Français
+		#Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+				
+		#Input From	JFK
+		Input To	CDG
+		
+		Click next month dep
+		Click last date on dep calendar
+		Click next month rtn
+		Click last date on return calendar
+		Check flexible days
+		Select PAX	Adult(25 or older)	0
+		Select Class	Premium Economy
+		Submit Search
+		
+		#ebt2 select date
+		#Verify EBT2 Dep-Text	Your departure flight: Moscow to Paris
+		#Verify EBT2 Ret-Text	Your return flight: Paris to Moscow
+		Submit Search
+		
+		#ebt 45 upsell #Page
+		#Page Should Contain	Departure:
+		#Page Should Contain	Moscow - Paris
+		Click Next
+		#Page Should Contain	Return:
+		#Page Should Contain	Paris - Moscow
+		Submit Search
+		
+		#summary #Page ebt6
+		#Page Should Contain	Passengers
+		#Page Should Contain	1 Adult
+		#Page Should Contain	Your departure flight
+		#Page Should Contain	Moscow - Paris
+		#Page Should Contain	Your return flight
+		#Page Should Contain	Paris - Moscow
+		Submit Search
+		
+		#paxdetail #Page
+		Input LastName	jms	0
+		Input FirstName	jms	0
+		Input telephone	090909009	0
+		Input email	farankhan@mobileaware.com	0
+		Input confirm-email	farankhan@mobileaware.com	0
+		#Input dob-date	15	0
+		#Select dob-month	janvier		0
+		#Input dob-year	1990	0
+		#Select Gender	Masculin	0
+		Check termsandcondition
+		Submit Search
+		
+		#Seat Choose #Page
+		##Page Should Contain	Seats and check-in
+		#Click Confirm
+		
+		#Payment detail #Page
+		Select Credit Card
+		Select c-type	 VISA card
+		Input card-num	4970100000196796
+		Select exp-mon	05 - May
+		Select exp-year		2028
+		Input crypto		123
+		Input c-lname		test
+		Input c-fname		test
+		Input c-addr	test
+		Input c-poscode	12345
+		Input c-city	test
+		#Select State	Quebec
+		#Page Should Contain	Total to pay
+		#Page Should Contain	RUB

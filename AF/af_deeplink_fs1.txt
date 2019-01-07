@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  AF Flight Status Deeplink 1 - By Destination
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+CDG-JFK
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		FS-1

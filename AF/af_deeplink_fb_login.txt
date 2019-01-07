@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  AF Flying Blue Login Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+FB
+		[Tags]	DLINK
+		[Tags]	nightly
+		Test Setup
+		FB-Login

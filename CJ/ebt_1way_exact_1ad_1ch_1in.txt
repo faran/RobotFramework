@@ -1,0 +1,73 @@
+*** Settings ***
+
+Documentation  CJ Book Flight 1 Adult 1 Child 1 Infant One Way exact days  till payment page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+DUB-LON
+	Test Setup
+	Open CJ HP
+	Open EBT from HP
+	Select From		Dublin
+	Select To		London City
+	Choose One-way
+	UnCheck flexible days
+	Click next month dep
+	Click last date on dep calendar
+	
+	#Click next month rtn
+	#Click last date on return calendar
+	
+	Select Adult	1
+	Select Child	1
+	Select Infant	1
+	Submit Search
+	
+	#Select date
+	#Submit Search
+	
+	#select cheapest
+	Select Cheapest
+	Submit Search
+	
+	#summary page
+	Submit Search
+	
+	#paxdetail
+	#pax1 adult
+	Input FirstName	Johnny
+	Input LastName	Blogs
+	Input email	johnnyblogs@mobileaware.com
+	Input contactPhone	011112222
+	Input mobile	080000000
+	
+	#pax2 child
+	Input FirstName2	Mike
+	Input LastName2		Blogs
+	Select dd	18
+	Select mm	Aug
+	Select yyyy	2005
+	
+	#pax3 infant1
+	Input FirstNameInfant	Junior
+	Input LastNameInfant	Blogs
+	Select ddinfant	18
+	Select mminfant	Jan
+	Select yyyyinfant	2012
+	
+	
+	Submit Search
+	
+	#payment details page
+	Select CardType		Visa
+	
+	Select Country	Ireland (Republic of) (IE)
+	Click Home Header
+	
+
+	
+	
+	
+	

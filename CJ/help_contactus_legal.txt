@@ -1,0 +1,18 @@
+*** Settings ***
+
+Documentation  CJ Help - Contact Us - Legal
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CJ
+	Test Setup
+	Open CJ HP
+	Select Help
+	Select Contact us
+	Select legal
+	Click Home Header
+	
+	
+	

@@ -1,0 +1,19 @@
+*** Settings ***
+
+Documentation  Change country and language
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+
+Change Country Language
+
+	Start Selenium Server
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language		English
+		Click Choose Language
+	Stop Selenium Server

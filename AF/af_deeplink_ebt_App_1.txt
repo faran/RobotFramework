@@ -1,0 +1,15 @@
+﻿*** Settings ***
+
+Documentation  AF EBT Deeplink App 1 Pax Return LH Cal True
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-JFK
+		[Tags]    DLINK
+		[Tags]    nightly
+		[Tags]	  Regression
+		Test Setup
+		EBT-APP-1
+				

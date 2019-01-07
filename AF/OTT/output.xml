@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20120703 18:26:38.391" generator="Robot 2.7 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\AF\OTT\af_ott_with_connections.txt" id="s1" name="Af Ott With Connections">
+<metadata>
+</metadata>
+<test id="s1-t1" timeout="" name="Flight Schedule OTT">
+<kw type="kw" name="af_resource.Open All flight times from HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${AF_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20120703 18:26:44.405" level="INFO">Opening browser 'googlechrome' to base url 'http://localhost:8080/af'</msg>
+<status status="PASS" endtime="20120703 18:26:44.405" starttime="20120703 18:26:38.503"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Maximize Browser Window" timeout="">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:44.438" starttime="20120703 18:26:44.406"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//img[@src[contains(.,'nall')]]</arg>
+</arguments>
+<msg timestamp="20120703 18:26:45.260" level="INFO">Clicking image 'xpath=//img[@src[contains(.,'nall')]]'.</msg>
+<status status="PASS" endtime="20120703 18:26:45.260" starttime="20120703 18:26:44.438"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:45.270" starttime="20120703 18:26:45.260"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:45.270" starttime="20120703 18:26:38.502"></status>
+</kw>
+<kw type="kw" name="af_resource.Open OTT" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//html/body/div/div/div/form/table[2]/tbody/tr[3]/td/span/span/a/img</arg>
+</arguments>
+<msg timestamp="20120703 18:26:46.176" level="INFO">Clicking image 'xpath=//html/body/div/div/div/form/table[2]/tbody/tr[3]/td/span/span/a/img'.</msg>
+<status status="PASS" endtime="20120703 18:26:46.176" starttime="20120703 18:26:45.272"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:46.188" starttime="20120703 18:26:46.177"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:46.189" starttime="20120703 18:26:45.271"></status>
+</kw>
+<kw type="kw" name="af_resource.Input From" timeout="">
+<doc></doc>
+<arguments>
+<arg>CDG</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>from</arg>
+<arg>${airportFrom}</arg>
+</arguments>
+<msg timestamp="20120703 18:26:46.203" level="INFO">Typing text 'CDG' into text field 'from'</msg>
+<status status="PASS" endtime="20120703 18:26:46.203" starttime="20120703 18:26:46.190"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:46.203" starttime="20120703 18:26:46.190"></status>
+</kw>
+<kw type="kw" name="af_resource.Input To" timeout="">
+<doc></doc>
+<arguments>
+<arg>NYC</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>to</arg>
+<arg>${airportTo}</arg>
+</arguments>
+<msg timestamp="20120703 18:26:46.216" level="INFO">Typing text 'NYC' into text field 'to'</msg>
+<status status="PASS" endtime="20120703 18:26:46.216" starttime="20120703 18:26:46.205"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:46.216" starttime="20120703 18:26:46.204"></status>
+</kw>
+<kw type="kw" name="af_resource.Click Confirm" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[@name='confirm']</arg>
+</arguments>
+<msg timestamp="20120703 18:26:48.084" level="INFO">Clicking image 'xpath=//input[@name='confirm']'.</msg>
+<status status="PASS" endtime="20120703 18:26:48.084" starttime="20120703 18:26:46.218"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:48.097" starttime="20120703 18:26:48.085"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:48.098" starttime="20120703 18:26:46.217"></status>
+</kw>
+<kw type="kw" name="af_resource.Click Week of Day OTT" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//form[@id='ott2Form']/table[13]/tbody/tr/td/table[2]/tbody/tr/td[7]/a/span</arg>
+</arguments>
+<msg timestamp="20120703 18:26:49.772" level="INFO">Clicking image 'xpath=//form[@id='ott2Form']/table[13]/tbody/tr/td/table[2]/tbody/tr/td[7]/a/span'.</msg>
+<status status="PASS" endtime="20120703 18:26:49.772" starttime="20120703 18:26:48.100"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:49.784" starttime="20120703 18:26:49.773"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:49.785" starttime="20120703 18:26:48.099"></status>
+</kw>
+<kw type="kw" name="af_resource.Click New Search OTT" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[@name='back']</arg>
+</arguments>
+<msg timestamp="20120703 18:26:50.565" level="INFO">Clicking image 'xpath=//input[@name='back']'.</msg>
+<status status="PASS" endtime="20120703 18:26:50.565" starttime="20120703 18:26:49.786"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20120703 18:26:50.575" starttime="20120703 18:26:50.566"></status>
+</kw>
+<status status="PASS" endtime="20120703 18:26:50.576" starttime="20120703 18:26:49.785"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20120703 18:26:50.576" critical="yes" starttime="20120703 18:26:38.501"></status>
+</test>
+<doc>Flight Schedule OTT with connections
+</doc>
+<status status="PASS" endtime="20120703 18:26:50.577" starttime="20120703 18:26:38.392"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Af Ott With Connections" pass="1">Af Ott With Connections</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

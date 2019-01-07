@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI PNR Checkin Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI PNR
+		[Tags]    DLINK
+		Test Setup
+		ICI-PNR

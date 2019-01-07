@@ -1,0 +1,61 @@
+﻿*** Settings ***
+
+Documentation  AF TTT PARIS - MADRID Medium Haul
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-MAD-CDG
+		[Tags]	EBT
+		[Tags]	nightly
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language		English
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	MAD
+		
+		Click next month dep
+		Click next month dep
+		Click next month dep
+		Click last date on dep calendar
+		
+		Click next month rtn
+		Click last date on return calendar
+		Submit Search
+		
+		#eb2
+		Submit Search
+		
+		#ebt45
+		Submit Search
+		
+		#summary
+		#ttt
+		Page Should Contain		0 € per passenger
+		Click TTT add this option
+		Page Should Contain		Option added
+		Click TTT add this option
+		Page Should Contain		0 € per passenger
+		Click TTT add this option
+		Page Should Contain		Option added
+		Page Should Contain Button	xpath=//input[@name='aba']
+		Submit Search
+
+		
+		Input LastName    JMS	0
+		Input FirstName   JMS	0
+		Input telephone    090909009	0
+		Input email    farankhan@mobileaware.com	0
+		Input confirm-email    farankhan@mobileaware.com	0
+		Check termsandcondition
+		Submit Search
+		
+		#Payment detail page
+		Page Should Contain		Your reservation

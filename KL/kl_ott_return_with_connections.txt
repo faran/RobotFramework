@@ -1,0 +1,26 @@
+*** Settings ***
+
+Documentation  Flight Schedule OTT return with connection flights
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+AMS-SYD-AMS
+		[Tags]    nightly
+		Test Setup
+		Open KL HP
+		Open FI from HP
+		Open OTT
+		Input From		AMS
+		Input To		SYD	
+		Submit Search
+		Click Return
+		Verify Departure present
+		Click Week of Day OTT
+		Verify separators present
+		Verify Flight Distance Label
+		Verify Flight Distance Label Second Time
+		Verify Flight Distance
+		Verify Flight Distance Second Time
+		Click New Search OTT

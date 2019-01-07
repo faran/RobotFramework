@@ -1,0 +1,34 @@
+*** Settings ***
+
+Documentation  Booking flight with 1 way option and on exact dates uncheckflexibledate from cdg to lhr.
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+EBT cal 1 way non flexible
+	
+		[Tags]		QReg
+		Open AF HP
+		Click Purchase a Ticket
+		Open EBT from HP
+		Input From	CDG
+		Input To	LHR
+		Choose One-way
+		Click next month dep
+		Click last date on dep calendar
+		UnCheck flexible days
+		#ebt1
+		Submit Search
+		#upsell
+		Submit Search
+		#summary
+		Submit Search
+		#paxdetail
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search

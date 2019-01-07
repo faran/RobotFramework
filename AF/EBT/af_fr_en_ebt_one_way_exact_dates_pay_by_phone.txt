@@ -1,0 +1,49 @@
+*** Settings ***
+
+Documentation  Changing country to FR and lang to EN Booking one way flight with exact dates. Choosing pay by phone.
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+EBT 1 way exact dates pay by phone
+	
+
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		#Select Language		English
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	LHR
+		
+		Choose One-way
+		Click next month dep
+		Click last date on dep calendar
+		UnCheck flexible days
+		
+		#ebt1
+		Submit Search
+		
+		#upsell
+		Submit Search
+		
+		#summary
+		Choose pay-by-phone
+		Submit Search
+		
+		#paxdetail
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+		
+		#click home and verify booking done
+		Click home-ebt9

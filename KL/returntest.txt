@@ -1,0 +1,34 @@
+*** Settings ***
+
+Documentation  KLM EBT - Return Flexible Dates Pay At Office
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+
+KLM EBT
+
+		${random_numbers} =		Generate Random String	4	[NUMBERS]
+		
+		Test Setup
+		[Tags]		QReg
+				
+		Open KL HP
+				
+		Click Change country
+		Select Country		Netherlands
+		Click Choose Country Select
+		Select Language		English
+		Click Choose Language Select
+		
+		Open EBT from HP
+		Select From		Amsterdam - Schiphol (AMS)
+		Input To		MAD
+		Click next month dep
+		Click last date on dep calendar
+		
+		Click next month rtn
+		Click last date on return calendar
+		
+		Submit Search

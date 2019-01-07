@@ -1,0 +1,36 @@
+*** Settings ***
+
+Documentation  Test
+...			   
+Resource		common_resource.txt
+
+			
+*** Test Cases ***
+		Test Setup
+		:FOR	${i}	IN 	@{countries}
+		\   LOG	${i}
+		\	Open AF HP
+		\	Set Selenium Speed	2
+		\	Click Change country
+		\	Select Country    ${i}
+		\	Click Choose Country Select
+		#Select Language    English
+		\	Click Choose Language Select
+		\	Open EBT from HP
+		#	Input From    CDG
+		\	Input To    CDG
+		#Select One-Way
+		\	Click next month dep
+		\	Click last date on dep calendar
+		\	Click last date on return calendar
+		\	Submit Search
+		# Select Flights
+		\	Detect Currency ebt2
+		\	Submit Search
+		# Select Fares
+		\	Detect Currency ebt45
+		\	Submit Search
+		# You Order
+		\	Detect Currency ebt6
+		\	Verify Continue Present
+		\	Close Browser

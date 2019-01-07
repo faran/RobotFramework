@@ -1,0 +1,71 @@
+*** Settings ***
+Documentation     KLM EBT - De_DE - 1 Adult 1 Child - Return - Flexible Dates - M Class - Pay At Office
+Resource          common_resource.txt
+
+*** Test Cases ***
+TXL-ZRH-TXL
+	Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Germany
+    Click Choose Country Select
+    Select Language    Deutsch
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Berlin - Tegel Airport (TXL)
+    Input To    ZRH
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+    Check flexible days
+	Click Add PAX
+	Select PAX	Child (2 - 14 year)	1
+	Select dob-date		01		1
+	Select dob-month	Jan		1
+	Select dob-year		2005	1
+    Submit Search
+	
+	# Select Dates
+    Submit Search
+    
+	# Select Flights
+    Submit Search
+    
+	# Your Order
+    Submit Search
+    
+	# 1st Adult Detail 
+    Input FirstName    Test	0
+    Input LastName    Test	0
+    Select Title    Herr	0
+    Input email    farankhan@mobileaware.com
+    Input Confirm Email    farankhan@mobileaware.com
+    Input Tel Number    1234567890
+    # 1st Child Details
+	Input FirstName1	Test	1
+	Input LastName1		Test	1
+	Select Title1		Junge	1
+	#Select dd1	1	1
+	#Select mm1	April	1
+	#Select yyyy1	2010	1
+	Submit Search
+    	
+	# Payment Selection
+    Select PAO
+    Submit Search
+    
+	# Review and book
+    Check termsandcondition
+    Submit Search
+    
+	# Confirmation Page
+	Detect PNR
+    Confirm Booking German
+	
+

@@ -1,0 +1,19 @@
+*** Settings ***
+
+Documentation  TEST
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+
+AF	
+	
+	Test Setup
+	Open AF HP
+	Click Home from header
+	Set Selenium Speed	2
+	Repeat Keyword		100		Reload Page	
+	Test Teardown
+
+	

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140723 12:44:16.368" generator="Robot 2.7.7 (Python 2.7.2 on win32)">
+<suite source="C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\KL\kl_ebt_nl_nl_fb_login_1_adult_return_flexible_dates_m_class.txt" id="s1" name="Kl Ebt Nl Nl Fb Login 1 Adult Return Flexible Dates M Class">
+<test id="s1-t1" timeout="" name="AMS-LHR-AMS">
+<kw type="kw" name="klm_resources.Test Setup" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Start Selenium Server" timeout="">
+<doc>Starts the Selenium Server provided with SeleniumLibrary.</doc>
+<arguments>
+<arg>-trustAllSSLCertificates</arg>
+</arguments>
+<msg timestamp="20140723 12:44:16.538" level="INFO">Selenium Server started with command "java -jar c:\Python27\lib\site-packages\SeleniumLibrary\lib\selenium-server.jar -port 4444 -trustAllSSLCertificates -userExtensions c:\Python27\lib\site-packages\SeleniumLibrary\lib\user-extensions.js -firefoxProfileTemplate c:\Python27\lib\site-packages\SeleniumLibrary\firefoxprofile"</msg>
+<msg timestamp="20140723 12:44:16.538" html="yes" level="INFO">Selenium server log is written to &lt;a href="file://C:/Users/fkhan/Downloads/afklm-demo/afklm_tests/KL/selenium_server_log.txt"&gt;C:\Users\fkhan\Downloads\afklm-demo\afklm_tests\KL\selenium_server_log.txt&lt;/a&gt;.</msg>
+<status status="PASS" endtime="20140723 12:44:16.538" starttime="20140723 12:44:16.520"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:16.538" starttime="20140723 12:44:16.519"></status>
+</kw>
+<kw type="kw" name="klm_resources.Open KL HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Open Browser" timeout="">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${KL_HP}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20140723 12:44:44.767" level="INFO">Opening browser 'googlechrome' to base url 'http://ms.mobileaware.com'</msg>
+<status status="PASS" endtime="20140723 12:44:44.767" starttime="20140723 12:44:16.540"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Maximize Browser Window" timeout="">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:44:44.785" starttime="20140723 12:44:44.767"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Title Should Be" timeout="">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>KLM Mobile</arg>
+</arguments>
+<msg timestamp="20140723 12:44:44.824" level="INFO">Page title is 'KLM Mobile'.</msg>
+<status status="PASS" endtime="20140723 12:44:44.824" starttime="20140723 12:44:44.786"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:44.824" starttime="20140723 12:44:16.539"></status>
+</kw>
+<kw type="kw" name="klm_resources.Click Change country" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=(//a[contains(@href,'choose.htm')])[2]</arg>
+</arguments>
+<msg timestamp="20140723 12:44:47.034" level="INFO">Clicking image 'xpath=(//a[contains(@href,'choose.htm')])[2]'.</msg>
+<status status="PASS" endtime="20140723 12:44:47.034" starttime="20140723 12:44:44.825"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:44:47.061" starttime="20140723 12:44:47.034"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:47.062" starttime="20140723 12:44:44.824"></status>
+</kw>
+<kw type="kw" name="klm_resources.Select Country" timeout="">
+<doc></doc>
+<arguments>
+<arg>Netherlands</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Select From List" timeout="">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>country</arg>
+<arg>${cntry}</arg>
+</arguments>
+<msg timestamp="20140723 12:44:47.104" level="INFO">Selecting values 'Netherlands' from list 'country'.</msg>
+<status status="PASS" endtime="20140723 12:44:47.104" starttime="20140723 12:44:47.063"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:47.104" starttime="20140723 12:44:47.062"></status>
+</kw>
+<kw type="kw" name="klm_resources.Click Choose Country Select" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[@name='submit']</arg>
+</arguments>
+<msg timestamp="20140723 12:44:47.629" level="INFO">Clicking image 'xpath=//input[@name='submit']'.</msg>
+<status status="PASS" endtime="20140723 12:44:47.629" starttime="20140723 12:44:47.105"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:44:47.668" starttime="20140723 12:44:47.629"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:47.668" starttime="20140723 12:44:47.105"></status>
+</kw>
+<kw type="kw" name="klm_resources.Select Language" timeout="">
+<doc></doc>
+<arguments>
+<arg>Nederlands</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Select From List" timeout="">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>language</arg>
+<arg>${lang}</arg>
+</arguments>
+<msg timestamp="20140723 12:44:47.710" level="INFO">Selecting values 'Nederlands' from list 'language'.</msg>
+<status status="PASS" endtime="20140723 12:44:47.711" starttime="20140723 12:44:47.669"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:47.711" starttime="20140723 12:44:47.668"></status>
+</kw>
+<kw type="kw" name="klm_resources.Click Choose Language Select" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${tit} = SeleniumLibrary.Get Title" timeout="">
+<doc>Returns title of current page.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140723 12:44:47.731" level="INFO">${tit} = Choose country</msg>
+<status status="PASS" endtime="20140723 12:44:47.731" starttime="20140723 12:44:47.712"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If" timeout="">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>'${tit}' == 'Choose country'</arg>
+<arg>Click Image</arg>
+<arg>xpath=//input[@name='submit']</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[@name='submit']</arg>
+</arguments>
+<msg timestamp="20140723 12:44:49.218" level="INFO">Clicking image 'xpath=//input[@name='submit']'.</msg>
+<status status="PASS" endtime="20140723 12:44:49.219" starttime="20140723 12:44:47.732"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:49.219" starttime="20140723 12:44:47.732"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:49.219" starttime="20140723 12:44:47.711"></status>
+</kw>
+<kw type="kw" name="klm_resources.Open FB from HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//div[@id='yy3']/a/table/tbody/tr/td[2]</arg>
+</arguments>
+<msg timestamp="20140723 12:44:51.426" level="INFO">Clicking image 'xpath=//div[@id='yy3']/a/table/tbody/tr/td[2]'.</msg>
+<status status="PASS" endtime="20140723 12:44:51.426" starttime="20140723 12:44:49.220"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:44:51.456" starttime="20140723 12:44:51.427"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:51.457" starttime="20140723 12:44:49.219"></status>
+</kw>
+<kw type="kw" name="klm_resources.Input FBLogin" timeout="">
+<doc></doc>
+<arguments>
+<arg>2058018534</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Text" timeout="">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${login}</arg>
+</arguments>
+<msg timestamp="20140723 12:44:51.503" level="INFO">Typing text '2058018534' into text field 'username'</msg>
+<status status="PASS" endtime="20140723 12:44:51.504" starttime="20140723 12:44:51.458"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:51.504" starttime="20140723 12:44:51.457"></status>
+</kw>
+<kw type="kw" name="klm_resources.Input FBPin" timeout="">
+<doc></doc>
+<arguments>
+<arg>5655</arg>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Input Password" timeout="">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>pinCode</arg>
+<arg>${pin}</arg>
+</arguments>
+<msg timestamp="20140723 12:44:51.538" level="INFO">Typing password into text field 'pinCode'</msg>
+<status status="PASS" endtime="20140723 12:44:51.539" starttime="20140723 12:44:51.505"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:51.540" starttime="20140723 12:44:51.504"></status>
+</kw>
+<kw type="kw" name="klm_resources.Submit log in" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Button" timeout="">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>submit</arg>
+</arguments>
+<msg timestamp="20140723 12:44:57.739" level="INFO">Clicking button 'submit'.</msg>
+<status status="PASS" endtime="20140723 12:44:57.739" starttime="20140723 12:44:51.541"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:44:57.761" starttime="20140723 12:44:57.739"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:44:57.761" starttime="20140723 12:44:51.541"></status>
+</kw>
+<kw type="kw" name="klm_resources.Click Home from header" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[contains(@href, 'home.htm')]</arg>
+</arguments>
+<msg timestamp="20140723 12:45:20.053" level="INFO">Clicking image 'xpath=//a[contains(@href, 'home.htm')]'.</msg>
+<status status="PASS" endtime="20140723 12:45:20.053" starttime="20140723 12:44:57.762"></status>
+</kw>
+<kw type="kw" name="SeleniumLibrary.Wait Until Page Loaded" timeout="">
+<doc>Waits for a page load to happen.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140723 12:45:20.075" starttime="20140723 12:45:20.053"></status>
+</kw>
+<status status="PASS" endtime="20140723 12:45:20.075" starttime="20140723 12:44:57.762"></status>
+</kw>
+<kw type="kw" name="klm_resources.Open EBT from HP" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SeleniumLibrary.Click Image" timeout="">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//div[@id='yy0']/a/table/tbody/tr/td[2]</arg>
+</arguments>
+<msg timestamp="20140723 12:45:20.922" level="INFO">Clicking image 'xpath=//div[@id='yy0']/a/table/tbody/tr/td[2]'.</msg>
+<msg timestamp="20140723 12:45:20.922" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20140723 12:45:20.924" level="FAIL">ERROR: Element xpath=//div[@id='yy0']/a/table/tbody/tr/td[2] not found</msg>
+<status status="FAIL" endtime="20140723 12:45:20.924" starttime="20140723 12:45:20.077"></status>
+</kw>
+<status status="FAIL" endtime="20140723 12:45:20.924" starttime="20140723 12:45:20.076"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>nightly</tag>
+</tags>
+<status status="FAIL" endtime="20140723 12:45:20.924" critical="yes" starttime="20140723 12:44:16.518">ERROR: Element xpath=//div[@id='yy0']/a/table/tbody/tr/td[2] not found</status>
+</test>
+<doc>KLM EBT - Nl_NL - 1 Adult - Return - Flexible Dates - FB - Login - M Class</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140723 12:45:20.928" starttime="20140723 12:44:16.368"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="0" fail="1">nightly</stat>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Kl Ebt Nl Nl Fb Login 1 Adult Return Flexible Dates M Class">Kl Ebt Nl Nl Fb Login 1 Adult Return Flexible Dates M Class</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

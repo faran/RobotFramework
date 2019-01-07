@@ -1,0 +1,67 @@
+*** Settings ***
+Documentation     KLM EBT - EN_UK - 1 Adult 1 Child - Return - Flexible Dates - M Class - Pay At Office
+Resource          common_resource.txt
+
+*** Test Cases ***
+LHR-AMS-LHR
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    UK
+    Click Choose Country Select
+    Open EBT from HP
+    Select From    London - Heathrow Airport (LHR)
+    Input To    AMS
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+    Check flexible days
+	Click Add PAX
+	Select PAX	Child (2 - 14 year)	1
+    Submit Search
+	
+	# Select Dates
+    Submit Search
+    
+	# Select Flights
+    Submit Search
+    
+	# Your Order
+    Submit Search
+    
+	# 1st Adult Detail 
+    Input FirstName    Johnny	0
+    Input LastName    Shop	0
+    Select Title    Mr	0
+    Input email    farankhan@mobileaware.com
+    Input Confirm Email    farankhan@mobileaware.com
+    Input Tel Number    1234567890
+    # 1st Child Details
+	Input FirstName1	Johnny	1
+	Input LastName1		Shop	1
+	Select Title1		Mstr	1
+	#known bug https://jira.mobileaware.com/browse/AFK-5658
+	#Select dd1	1	1
+	#Select mm1	January	1
+	#Select yyyy1	2010	1
+	Submit Search
+    	
+	# Payment Selection
+    Select PAO
+    Submit Search
+    
+	# Review and book
+    Check termsandcondition
+    Submit Search
+    
+	# Confirmation Page
+	Detect PNR
+    Confirm Booking

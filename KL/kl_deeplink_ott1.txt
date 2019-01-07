@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  KLM Time Table Deeplink 1 - By Timetable
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+OTT
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		OTT-1

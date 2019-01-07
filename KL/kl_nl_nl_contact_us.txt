@@ -1,0 +1,23 @@
+*** Settings ***
+
+Documentation  NL_NL KLM Contact us
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+CU
+		[Tags]    nightly
+		Test Setup
+		Open KL HP
+		Click Change country
+		Select Country    Netherlands
+		Click Choose Country Select
+		Select Language    Nederlands
+		Click Choose Language Select
+		
+		Open Contact us
+		Title Should be		Neem contact op
+		Page Should Contain		Onze ticketkantoren
+		
+		

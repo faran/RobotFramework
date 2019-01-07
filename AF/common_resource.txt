@@ -1,0 +1,15 @@
+*** Settings ***
+Documentation     The correct SUT specific resource    #universal resource
+...               is imported based on ${SUT} variable. SeleniumLibrary is also
+...               imported here so that no other file needs to import it.
+
+Resource          af_resource.txt
+
+Library           SeleniumLibrary    180
+Library           String
+
+*** Variables ***
+${SERVER}        qa6.mobileaware.com
+#${SERVER}         aftest.mobileaware.com
+#${SERVER}        localhost:8080/af
+${BROWSER}        googlechrome

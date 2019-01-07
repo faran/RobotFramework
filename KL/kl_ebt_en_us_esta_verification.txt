@@ -1,0 +1,36 @@
+*** Settings ***
+Documentation     KLM EBT - en_US - 1 Adult - Return - Flexible Dates - M Class - ESTA
+Resource          common_resource.txt
+
+*** Test Cases ***
+AMS-LHR-AMS
+	[Tags]    nightly
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    USA
+    Click Choose Country Select
+    Open EBT from HP
+    Select From    Amsterdam - Schiphol (AMS)
+    Input To    JFK
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+	Click next month dep
+    Click last date on dep calendar
+	Click next month rtn
+	Click last date on return calendar
+    Check flexible days
+    Submit Search
+	# Select Dates
+    Submit Search
+    # Select Flights
+    Submit Search
+    # Your Order
+    Submit Search
+    # Pax Detail Page
+    Click ESTA
+	Page Should Contain	Element		//table[@id='ddi1']/tbody/tr/td/span/span/strong
+	Page Should Contain			KLM is obliged to provide the American Immigration and Homeland Security with passenger information. Read more about travelling to the USA or consult the KLM Privacy Policy.
+	Page Should Contain			Residents of countries under the Visa Waiver Programme must also request supplementary travel authorization via the Electronic System for Travel Authorization (ESTA), before travelling to the United States. Read more about ESTA.

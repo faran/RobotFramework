@@ -1,0 +1,37 @@
+*** Settings ***
+
+Documentation  This test case book a flight till payments detail page from CDG to SYD with All default options with FB loged in.
+...			   
+Resource       ../common_resource.txt
+
+			
+*** Test Cases ***
+
+AF EBT
+		Test Setup	
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Click Choose Language
+				
+		Open FB from HP
+		Input FBLogin	1046510241
+		Input FBPin		123456
+		Submit log in
+		Click Home from header
+		Click Purchase a Ticket		
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	SIN
+		Submit Search
+		
+		Submit Search
+		
+		Submit Search
+		
+		Submit Search
+		
+		Check termsandcondition
+		Submit Search

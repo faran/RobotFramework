@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF ICI FF Checkin Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI FF
+		[Tags]    DLINK
+		Test Setup
+		ICI-FF

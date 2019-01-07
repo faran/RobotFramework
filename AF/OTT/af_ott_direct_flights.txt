@@ -1,0 +1,19 @@
+*** Settings ***
+
+Documentation  Flight Schedule OTT Direct flights
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+Flight Schedule OTT
+		
+		Test Setup
+		Open AF HP
+		Open OTT
+		Input From		cdg
+		Input To		AMS
+		Click Confirm
+		Click Week Of Day
+		Click New Search OTT

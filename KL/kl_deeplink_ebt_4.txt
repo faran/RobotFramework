@@ -1,0 +1,12 @@
+*** Settings ***
+
+Documentation  KLM EBT Deeplink 4 - Your Order page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CDG-AMS-CDG
+		[Tags]    nightly
+		Test Setup
+		EBT-4

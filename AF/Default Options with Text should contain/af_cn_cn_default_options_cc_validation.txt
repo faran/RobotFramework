@@ -1,0 +1,85 @@
+﻿*** Settings ***
+
+Documentation  China BJS-CDG-BJS  CC Validation
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+BJS-CDG-BJS
+		[Tags]	EBT
+		[Tags]	nightly
+		Test Setup
+		Open AF HP
+		Click change country
+		Select Country		China
+		Click Choose Country
+		Select Language    简体中文
+		Click Choose Language
+		Click Purchase a Ticket
+		Open EBT from HP
+				
+		#Input From	JFK
+		Input To	CDG
+		
+		Click next month dep
+		Click last date on dep calendar
+		Click next month rtn
+		Click last date on return calendar
+		Check flexible days
+		Select PAX	成人(18-59嵗)	0
+		Select Class	尊尚经济舱 Premium Economy
+		Submit Search
+		
+		#ebt2 select date
+		#Verify EBT2 Dep-Text	您的去程航班: 北京 到 巴黎
+		#Verify EBT2 Ret-Text	您的返程航班: 巴黎 到 北京
+		Submit Search
+		
+		#ebt 45 upsell page
+		Page Should Contain	出發:
+		Page Should Contain	北京 - 巴黎
+		Page Should Contain	回程:
+		Page Should Contain	巴黎 - 北京
+		Submit Search
+		
+		#summary page ebt6
+		Page Should Contain	乘客
+		Page Should Contain	1 成人
+		Page Should Contain	您的去程航班
+		Page Should Contain	北京 - 巴黎
+		Page Should Contain	您的返程航班
+		Page Should Contain	巴黎 - 北京
+		Submit Search
+		
+		#paxdetail page
+		Input LastName	jms	0
+		Input FirstName	jms	0
+		Input telephone	090909009	0
+		Input email	farankhan@mobileaware.com	0
+		Input confirm-email	farankhan@mobileaware.com	0
+		Input dob-date	15	0
+		Select dob-month	一月		0
+		Input dob-year	1990	0
+		Select Gender	男	0
+		Check termsandcondition
+		Submit Search
+		
+		#Seat Choose page
+		Page Should Contain	座位
+		Click Confirm
+		
+		#Payment detail page
+		Page Should Contain	须付总金额：
+		Select Credit Card
+		Select c-type	 Visa card
+		Input card-num	4970100000196796
+		Select exp-mon	05 - 五月
+		Select exp-year		2028
+		Input crypto		123
+		Input c-lname		test
+		Input c-fname		test
+		Input c-addr	test
+		Input c-poscode	12345
+		Input c-city	test
+		Select State	河北

@@ -1,0 +1,187 @@
+*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            for AF. 
+...            common_resource.txt is used to select which one to use.
+
+
+*** Variables ***
+
+${AF_HP}     http://${SERVER}
+${AF_EBT}     http://${SERVER}
+
+
+*** Keywords ***
+
+=== AF Home Page ===
+
+Open AF HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  Air France Mobile
+
+Click Home from header
+	Click Image		xpath=//div[@id='top']/table/tbody/tr/td/a/img
+	Wait Until Page Loaded
+	
+Select Country	[Arguments]  ${cntry}
+	Select From List	country	${cntry}
+	
+Click Choose Country
+	Click Image		xpath=//form[@id='chooseForm1']/table[2]/tbody/tr[2]/td/input
+	Wait Until Page Loaded
+
+Select Language	[Arguments]  ${lang}
+	Select From List	language	${lang}
+
+Click Choose Language
+	Click Image		xpath=//form[@id='chooseForm2']/table[2]/tbody/tr[2]/td/input
+	Wait Until Page Loaded
+	
+=== AF FOOTA ===
+Click Sign in
+	Click Link		fb.htm
+
+Click sign out
+	Click Link	fbLogOut.htm
+
+Click change country	
+	Click Link		choose.htm
+
+=== EBT ===
+
+Open EBT from HP
+	Click Image	xpath=//div[@id='nt']/div/a/img
+	Wait Until Page Loaded
+
+#Open AF EBT
+	#Open Browser  ${AF_HP}  ${BROWSER}
+    #Go TO	${AF_EBT}
+
+Input From  [Arguments]  ${airportFrom}
+    Input Text  from  ${airportFrom}
+
+Input To  [Arguments]  ${airportTo}
+    Input Text  to  ${airportTo}
+
+Choose One-way
+	Select Radio Button		tripType	tripType2
+	
+UnCheck flexible days
+	Unselect Checkbox		xpath=//input[@id='calendarSearch1']
+		
+Submit Search
+    Click Button  submit
+	Wait Until Page Loaded
+
+Input LastName	[Arguments]	${lname}
+		Input Text	passengerDetails[0].lastName	${lname}
+
+Input FirstName	[Arguments]	${fname}
+		Input Text	passengerDetails[0].firstName	${fname}
+
+Input telephone	[Arguments]	${cnumber}
+		Input Text	passengerDetails[0].countryCallingPhone	${cnumber}
+
+Input email	[Arguments]	${email}
+		Input Text	passengerDetails[0].email	${email}
+		
+Check termsandcondition
+		Select Checkbox 	pricingAccepted
+		
+Choose pay-by-phone
+	Select Radio Button		idModMop12_3	modmopSelected
+
+Click home-ebt9
+	Click Image		xpath=//input[@name='home']
+
+=== Calendar ===
+Click next month dep
+	Click Image		xpath=//img[@id='departureCal_nextMonthBtn']	,and dont't wait
+		
+Click next month rtn
+	Click Image		xpath=//img[@id='returnCal_nextMonthBtn']		,and dont't wait
+	
+Click last date on dep calendar
+	Click Image		xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div		,and don't wait
+	
+Click last date on return calendar
+	Click Image		xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div		,and dont't wait
+	
+
+=== Flying Blue ===
+
+Open FB from HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	#Click Image	xpath=//div[@id='nt']/div/a[2]/img
+	Click Image		xpath=//html/body/div/div/div/div/div[2]/a[2]/img 
+	Wait Until Page Loaded
+	
+Input FBLogin	[Arguments]	${login}
+	Input Text	userName	${login}
+
+Input FBPin	[Arguments]	${pin}
+	Input Password	pinCode		${pin}
+
+Submit log in
+	Click Button	submit
+	Wait Until Page Loaded
+	
+=== All Flight Times ===
+	
+Open All flight times from HP
+	Open Browser  ${AF_HP}  ${BROWSER}
+	Maximize Browser Window
+	Click Image		xpath=//div[@id='nt']/div[3]/a/img
+	Wait Until Page Loaded
+	
+Open FS Destination
+	Click Image		xpath=//html/body/div/div/div/form/table/tbody/tr[2]/td/span/span/a/img 
+	Wait Until Page Loaded
+	
+Input Departing		[Arguments]	${dest}
+	Input Text	origin	${dest}
+	
+Input Arrival		[Arguments]	${arriv}
+	Input Text	destination	${arriv}
+	
+Click First flight Return
+	Click Image		xpath=//div[@id='top']/div/form/table[3]/tbody/tr/td[3]/a/b
+	Wait Until Page Loaded
+	
+Click New Search
+	Click Image		xpath=//html/body/div/div/div/form/table[2]/tbody/tr[4]/td[2]/input
+	Wait Until Page Loaded
+	
+Open FS By Flight Number
+	Click Image		xpath=//html/body/div/div/div/form/table/tbody/tr[4]/td/span/span/a/img
+	Wait Until Page Loaded
+	
+Input Flight Number		[Arguments]	${numb}
+	Input Text	flightNumber	${numb}
+
+Open OTT
+	Click Image		xpath=//html/body/div/div/div/form/table[2]/tbody/tr[3]/td/span/span/a/img
+	Wait Until Page Loaded
+
+Click Confirm
+	Click Image		xpath=//html/body/div/div/div/form/table[3]/tbody/tr[2]/td/input
+	Wait Until Page Loaded
+	
+Click Week Of Day
+	Click Image		xpath=//div[@id='top']/div/div/a[7]/span
+	Wait Until Page Loaded
+
+Click New Search OTT
+	Click Image		xpath=//html/body/div/div/div/form/table/tbody/tr[16]/td[2]/input
+	Wait Until Page Loaded
+	
+Click With connections
+	Click Image		xpath=//div[@id='tabs']/a/img
+	Wait Until Page Loaded
+
+Click New Search with connections
+	Click Image		xpath=//html/body/div/div/div/form/table/tbody/tr[34]/td[2]/input
+	Wait Until Page Loaded
+	

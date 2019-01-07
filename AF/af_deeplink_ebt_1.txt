@@ -1,0 +1,17 @@
+*** Settings ***
+
+Documentation  AF EBT Deeplink 1 - Calendar Page
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+LHR-PAR
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		EBT-1
+				
+		
+		
+		

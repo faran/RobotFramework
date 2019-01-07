@@ -1,0 +1,207 @@
+Aug 29, 2012 11:07:49 AM org.openqa.grid.selenium.GridLauncher main
+INFO: Launching a standalone server
+11:07:49.500 INFO - Java: Oracle Corporation 23.0-b21
+11:07:49.501 INFO - OS: Windows 7 6.1 x86
+11:07:49.505 INFO - v2.21.0, with Core v2.21.0. Built from revision 16552
+11:07:49.621 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+11:07:49.622 INFO - Version Jetty/5.1.x
+11:07:49.622 INFO - Started HttpContext[/selenium-server/driver,/selenium-server/driver]
+11:07:49.623 INFO - Started HttpContext[/selenium-server,/selenium-server]
+11:07:49.623 INFO - Started HttpContext[/,/]
+11:07:49.654 INFO - Started org.openqa.jetty.jetty.servlet.ServletHandler@ab7af2
+11:07:49.654 INFO - Started HttpContext[/wd,/wd]
+11:07:49.657 INFO - Started SocketListener on 0.0.0.0:4444
+11:07:49.657 INFO - Started org.openqa.jetty.jetty.Server@8deb8a
+11:07:49.861 INFO - Checking Resource aliases
+11:07:49.864 INFO - Checking Resource aliases
+11:07:49.867 INFO - Command request: getNewBrowserSession[*googlechrome, http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, , commandLineFlags=--disable-web-security] on session null
+11:07:49.869 INFO - creating new remote session
+11:07:49.999 INFO - Allocated session dbf4f11b8a58497d997b5ab8cf9ecec6 for http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, launching...
+11:07:50.000 WARN - It looks like your baseUrl (http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone) is pointing to a file, not a directory (it doesn't end with a /).  We're going to have to strip off the last part of the pathname.
+11:07:50.000 INFO - Launching Google Chrome...
+11:07:52.280 INFO - Got result: OK,dbf4f11b8a58497d997b5ab8cf9ecec6 on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.316 INFO - Command request: setTimeout[5000.0, ] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.326 INFO - Got result: OK on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.331 INFO - Command request: open[http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.422 INFO - Got result: OK on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.428 INFO - Command request: windowMaximize[, ] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.443 INFO - Got result: OK on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.495 INFO - Command request: click[xpath=//div[@id='nt']/div[3]/a, ] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.507 INFO - Got result: ERROR: Element xpath=//div[@id='nt']/div[3]/a not found on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.516 INFO - Command request: click[xpath=//div[@id='nt']/div[3]/a, ] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.530 INFO - Got result: ERROR: Element xpath=//div[@id='nt']/div[3]/a not found on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.534 INFO - Command request: captureScreenshotToString[, ] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:52.536 INFO - Creating Robot
+11:07:52.990 INFO - Got result: [base64 encoded PNG] on session dbf4f11b8a58497d997b5ab8cf9ecec6
+11:07:55.448 INFO - Started SocketListener on 0.0.0.0:65521
+11:07:55.875 INFO - Started SocketListener on 0.0.0.0:65529
+11:07:56.124 INFO - Started SocketListener on 0.0.0.0:65531
+11:07:59.698 INFO - Couldn't proxy to http://tzzhnpblfi/ because host not found
+11:07:59.698 INFO - Couldn't proxy to http://uxakiynzot/ because host not found
+11:07:59.699 INFO - Couldn't proxy to http://txnqdiljqa/ because host not found
+11:08:28.091 INFO - Command request: getNewBrowserSession[*googlechrome, http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, , commandLineFlags=--disable-web-security] on session null
+11:08:28.091 INFO - creating new remote session
+11:08:28.093 INFO - Allocated session ad6e54b1843e4ae385158c12e4e4ad99 for http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, launching...
+11:08:28.093 WARN - It looks like your baseUrl (http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone) is pointing to a file, not a directory (it doesn't end with a /).  We're going to have to strip off the last part of the pathname.
+11:08:28.093 INFO - Launching Google Chrome...
+11:08:30.375 INFO - Got result: OK,ad6e54b1843e4ae385158c12e4e4ad99 on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.409 INFO - Command request: setTimeout[5000.0, ] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.416 INFO - Got result: OK on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.420 INFO - Command request: open[http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.509 INFO - Got result: OK on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.515 INFO - Command request: windowMaximize[, ] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.525 INFO - Got result: OK on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.567 INFO - Command request: getTitle[, ] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.593 INFO - Got result: OK, on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:30.598 INFO - Command request: captureScreenshotToString[, ] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:31.059 INFO - Got result: [base64 encoded PNG] on session ad6e54b1843e4ae385158c12e4e4ad99
+11:08:37.830 INFO - Couldn't proxy to http://ulpupkuzba/ because host not found
+11:08:37.831 INFO - Couldn't proxy to http://oqdnclplae/ because host not found
+11:08:37.831 INFO - Couldn't proxy to http://ruxcduaxxr/ because host not found
+11:15:46.339 INFO - Command request: getNewBrowserSession[*googlechrome, http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, , commandLineFlags=--disable-web-security] on session null
+11:15:46.339 INFO - creating new remote session
+11:15:46.340 INFO - Allocated session 9922e7bf5530488d8440a9effe72239e for http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, launching...
+11:15:46.340 WARN - It looks like your baseUrl (http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone) is pointing to a file, not a directory (it doesn't end with a /).  We're going to have to strip off the last part of the pathname.
+11:15:46.340 INFO - Launching Google Chrome...
+11:15:48.638 INFO - Got result: OK,9922e7bf5530488d8440a9effe72239e on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.657 INFO - Command request: setTimeout[5000.0, ] on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.698 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.707 INFO - Command request: open[http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.899 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.938 INFO - Command request: open[http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 9922e7bf5530488d8440a9effe72239e
+11:15:48.938 WARN - you appear to be changing domains from http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone to http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone
+this may lead to a 'Permission denied' from the browser (unless it is running as *iehta or *chrome,
+or alternatively the selenium server is running in proxy injection mode)
+11:15:51.242 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.251 INFO - Command request: type[from, CDG] on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.263 INFO - Started SocketListener on 0.0.0.0:49293
+11:15:51.263 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.274 INFO - Command request: type[to, SYD] on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.314 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.335 INFO - Command request: getLocation[, ] on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.342 INFO - Got result: OK,http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.346 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/submit"], ] on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.355 INFO - Got result: OK on session 9922e7bf5530488d8440a9effe72239e
+11:15:51.360 INFO - Command request: waitForPageToLoad[5000.0, ] on session 9922e7bf5530488d8440a9effe72239e
+11:15:56.074 INFO - Couldn't proxy to http://tkeiwawofx/ because host not found
+11:15:56.075 INFO - Couldn't proxy to http://jivoawxmdu/ because host not found
+11:15:56.075 INFO - Couldn't proxy to http://erpibccfvm/ because host not found
+11:15:56.375 INFO - Got result: Timed out after 5000.0ms on session 9922e7bf5530488d8440a9effe72239e
+11:15:56.378 INFO - Command request: captureScreenshotToString[, ] on session 9922e7bf5530488d8440a9effe72239e
+11:15:56.796 INFO - Got result: [base64 encoded PNG] on session 9922e7bf5530488d8440a9effe72239e
+11:16:38.518 INFO - Command request: getNewBrowserSession[*googlechrome, http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, , commandLineFlags=--disable-web-security] on session null
+11:16:38.518 INFO - creating new remote session
+11:16:38.518 INFO - Allocated session 95a23dd5f42e4455802c7d4a8e8a569e for http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, launching...
+11:16:38.518 WARN - It looks like your baseUrl (http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone) is pointing to a file, not a directory (it doesn't end with a /).  We're going to have to strip off the last part of the pathname.
+11:16:38.518 INFO - Launching Google Chrome...
+11:16:41.164 INFO - Got result: OK,95a23dd5f42e4455802c7d4a8e8a569e on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.202 INFO - Command request: setTimeout[15000.0, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.208 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.214 INFO - Command request: open[http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.311 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.316 INFO - Command request: open[http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:41.316 WARN - you appear to be changing domains from http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone to http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone
+this may lead to a 'Permission denied' from the browser (unless it is running as *iehta or *chrome,
+or alternatively the selenium server is running in proxy injection mode)
+11:16:43.447 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.454 INFO - Command request: type[from, CDG] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.472 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.481 INFO - Command request: type[to, SYD] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.491 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.495 INFO - Command request: getLocation[, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.501 INFO - Got result: OK,http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.505 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/submit"], ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.514 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:43.517 INFO - Command request: waitForPageToLoad[15000.0, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:48.272 INFO - Couldn't proxy to http://idcijkeypt/ because host not found
+11:16:48.272 INFO - Couldn't proxy to http://ytpvgmrfow/ because host not found
+11:16:48.272 INFO - Couldn't proxy to http://glbvllzcdi/ because host not found
+11:16:52.232 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.241 INFO - Command request: waitForPageToLoad[15000.0, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.251 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.262 INFO - Command request: getLocation[, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.270 INFO - Got result: OK,http://mobile.airfrance.com/ebt1.htm on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.274 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/submit"], ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.315 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:52.322 INFO - Command request: waitForPageToLoad[15000.0, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:57.987 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:57.992 INFO - Command request: waitForPageToLoad[15000.0, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:58.019 INFO - Got result: OK on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:58.033 INFO - Command request: getLocation[, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:58.041 INFO - Got result: ERROR: Current window or frame is closed! on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:58.048 INFO - Command request: captureScreenshotToString[, ] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:16:58.489 INFO - Got result: [base64 encoded PNG] on session 95a23dd5f42e4455802c7d4a8e8a569e
+11:17:11.152 INFO - Command request: getNewBrowserSession[*googlechrome, http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, , commandLineFlags=--disable-web-security] on session null
+11:17:11.152 INFO - creating new remote session
+11:17:11.154 INFO - Allocated session 2cfbb646602c4da8bfc16db9fd8dc68c for http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, launching...
+11:17:11.155 WARN - It looks like your baseUrl (http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone) is pointing to a file, not a directory (it doesn't end with a /).  We're going to have to strip off the last part of the pathname.
+11:17:11.155 INFO - Launching Google Chrome...
+11:17:13.491 INFO - Got result: OK,2cfbb646602c4da8bfc16db9fd8dc68c on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.531 INFO - Command request: setTimeout[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.536 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.540 INFO - Command request: open[http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.629 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.635 INFO - Command request: open[http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone, True] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:13.636 WARN - you appear to be changing domains from http://mobile.airfrance.com/index.htm?pd_-p=root^html^mozilla/5^safari^appleiphone to http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone
+this may lead to a 'Permission denied' from the browser (unless it is running as *iehta or *chrome,
+or alternatively the selenium server is running in proxy injection mode)
+11:17:16.220 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.231 INFO - Command request: type[from, CDG] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.244 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.251 INFO - Command request: type[to, SYD] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.286 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.293 INFO - Command request: getLocation[, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.298 INFO - Got result: OK,http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/5^safari^appleiphone on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.302 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/ebt.htm?pd_-p=root^html^mozilla/submit"], ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.316 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:16.321 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:20.910 INFO - Couldn't proxy to http://iejzghybzp/ because host not found
+11:17:20.910 INFO - Couldn't proxy to http://xscarrutot/ because host not found
+11:17:20.913 INFO - Couldn't proxy to http://aquyocrowv/ because host not found
+11:17:24.879 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.885 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.893 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.901 INFO - Command request: getLocation[, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.909 INFO - Got result: OK,http://mobile.airfrance.com/ebt1.htm on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.915 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/submit"], ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.932 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:24.936 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.665 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.669 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.674 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.679 INFO - Command request: getLocation[, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.684 INFO - Got result: OK,http://mobile.airfrance.com/ebt2.htm on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.687 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/submit"], ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.696 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:30.700 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.888 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.895 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.901 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.907 INFO - Command request: getLocation[, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.915 INFO - Got result: OK,http://mobile.airfrance.com/ebt45.htm on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.919 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/submit"], ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.926 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:34.930 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.045 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.051 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.060 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.068 INFO - Command request: type[passengerDetails[0].lastname, Blog] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.075 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.080 INFO - Command request: type[passengerDetails[0].firstname, John] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.086 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.091 INFO - Command request: type[passengerDetails[0].countryCallingPhone, 090909009] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.097 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.102 INFO - Command request: type[passengerDetails[0].email, Johh.blog@mobileaware.com] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.138 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.144 INFO - Command request: isChecked[pricingAccepted, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.150 INFO - Got result: OK,false on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.157 INFO - Command request: check[pricingAccepted, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.162 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.167 INFO - Command request: getLocation[, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.172 INFO - Got result: OK,http://mobile.airfrance.com/ebt6.htm on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.176 INFO - Command request: click[xpath=//input[@id="submit" or @name="submit" or @value="submit" or @src="submit" or @src="http://mobile.airfrance.com/submit"], ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.184 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:42.189 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:52.261 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:52.267 INFO - Command request: waitForPageToLoad[15000.0, ] on session 2cfbb646602c4da8bfc16db9fd8dc68c
+11:17:52.276 INFO - Got result: OK on session 2cfbb646602c4da8bfc16db9fd8dc68c

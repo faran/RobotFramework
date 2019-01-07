@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  KLM ICI Cancel Check In Seat Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+
+		[Tags]    DLINK
+		Test Setup
+		CCI

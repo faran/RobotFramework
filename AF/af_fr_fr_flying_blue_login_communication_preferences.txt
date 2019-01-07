@@ -1,0 +1,36 @@
+﻿*** Settings ***
+
+Documentation  Flying blue Communication Preferences
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+LIVE-FB
+		Test Setup
+		[Tags]	nightly
+		[Tags]	FB
+		[Tags]	Regression
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+				
+		Open FB from HP
+		Input FBLogin	2101630354
+		Input FBPin		123456
+		Submit log in
+		
+		Title Should Be		Mon profil
+		Click Modify Communication Preferences
+		Title Should Be		Préférences de communication
+		Page Should Contain List		xpath=//select[@id='selectedLanguage']
+		
+		Checkbox Should Be Selected		xpath=//input[@id='postalAddress1']
+		Checkbox Should Not Be Selected		xpath=//input[@id='postalAddress2']
+		
+		Click Back to My Profile From Comm Pref
+		Title Should Be		Mon profil
+		Page Should Contain		2101630354

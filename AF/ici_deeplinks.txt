@@ -1,0 +1,17 @@
+http://localhost:8080/af/iciApp.htm?idType=PNR&code=5T8QW8&airlineCode=AF&flightNumber=7780&MobileAwareApp=gmaf
+
+http://localhost:8080/af/iciApp.htm?idType=ET&code=057-2326807545&airlineCode=AF&flightNumber=7780&MobileAwareApp=gmaf
+
+http://localhost:8080/af/iciApp.htm?idType=FFAF&code=1482443836&MobileAwareApp=gmaf
+
+
+
+
+http://localhost:8080/af/iciSeatApp.htm?idType=PNR&code=5T8QW8&airlineCode=AF&flightNumber=7780&MobileAwareApp=gmaf
+
+http://localhost:8080/af/iciAbaApp.htm?idType=PNR&code=5UHPGB&airlineCode=AF&flightNumber=0100&MobileAwareApp=gmaf
+
+http://localhost:8080/af/iciComfortSeatApp.htm?idType=PNR&code=5T8QW8&airlineCode=AF&flightNumber=7780&MobileAwareApp=gmaf
+
+http://localhost:8080/af/iciCancelApp.htm?idType=PNR&code=5T8QW8&airlineCode=AF&flightNumber=7780&lastName=JMS&MobileAwareApp=gmaf
+

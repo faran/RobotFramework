@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  AF Flight Status Deeplink 2 - By Flight Number
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+AF7780
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		FS-2

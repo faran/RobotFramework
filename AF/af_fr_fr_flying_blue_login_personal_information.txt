@@ -1,0 +1,37 @@
+﻿*** Settings ***
+
+Documentation  Flying blue Personal Information
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+LIVE-FB
+		Test Setup
+		[Tags]	nightly
+		[Tags]	FB
+		[Tags]	Regression
+		${random_numbers} =    Generate Random String    5    [NUMBERS]
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+				
+		Open FB from HP
+		Input FBLogin	2101630354
+		Input FBPin		123456
+		Submit log in
+		Title Should Be		Mon profil
+		Page Should Contain		Informations personnelles
+		Click Personal Information Change
+		Title Should Be		Données personnelles
+		Textfield Value Should Be		xpath=//input[@id='emailAddress']	faran_flying_blue@macker.org
+		Textfield Value Should Be		xpath=//input[@id='emailAddressConfirm']	faran_flying_blue@macker.org
+		Textfield Value Should Be		xpath=//input[@id='city']	DUBLIN
+		
+		Input BlueBiz	AB${random_numbers}
+		Click Save Personal Details
+		Click Drill Down Personal Details
+		Page Should Contain	AB${random_numbers}

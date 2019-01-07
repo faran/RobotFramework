@@ -1,0 +1,20 @@
+*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            for KLM Mobile App. 
+...            
+...             
+...            common_resource.txt is used to select which one to use.
+
+
+*** Variables ***
+
+${KL_HP}     http://${SERVER}/kl/index.htm
+
+
+*** Keywords ***
+
+Open KL HP
+	Open Browser  ${KL_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  KLM Mobile

@@ -1,0 +1,22 @@
+*** Settings ***
+
+Documentation  Flight Schedule OTT departure flights
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+AMS-BCN-AMS
+		[Tags]    nightly
+		Test Setup
+		Open KL HP
+		Open FI from HP
+		Open OTT
+		Input From		AMS
+		Input To		BCN		
+		Submit Search
+		Verify Return present
+		Click Week of Day OTT
+		Verify Flight Distance Label
+		Verify Flight Distance
+		Click New Search OTT

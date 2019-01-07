@@ -1,0 +1,245 @@
+*** Settings ***
+
+Documentation  A resource file containing the application specific keywords
+...            for AF. 
+...            common_resource.txt is used to select which one to use.
+
+
+*** Variables ***
+
+${CJ_HP}     http://${SERVER}
+${CJ_EBT}     http://${SERVER}
+
+*** Keywords ***
+
+Test Setup		Start Selenium Server	-trustAllSSLCertificates
+
+Test Teardown		Close Browser
+	
+======== CJ HOME PAGE ========
+
+Open CJ HP
+	Open Browser  ${CJ_HP}  ${BROWSER}
+   	Maximize Browser Window
+    Title Should Be  CityJet
+	Set Selenium Speed	1
+
+Open CJ EBT
+	Open Browser  ${CJ_HP}  ${BROWSER}
+    Go TO	${CJ_EBT}
+	
+Open EBT from HP
+	Click Image	xpath=//img[@src[contains(.,'bebt1')]]
+	Wait Until Page Loaded
+	Title Should Be		Book Flight
+
+Click Home Header
+	Click Image	xpath=//img[@src[contains(.,'home')]]
+	Wait Until Page Loaded
+	
+Open Flight Status
+	Click Image	xpath=//img[@src[contains(.,'bsta')]]
+	Wait Until Page Loaded
+	Title Should Be		Flight Status
+	
+Open Flight Schedule
+	Click Image	xpath=//img[@src[contains(.,'bott')]]
+	Wait Until Page Loaded
+	Title Should Be		Flight Schedules
+
+Open Manage Your Booking
+	Click Image	xpath=//img[@src[contains(.,'bmmb')]]
+	Wait Until Page Loaded
+	Title Should Be		Manage Your Booking	
+
+Open Check-In
+	Click Image	xpath=//img[@src[contains(.,'bici')]]
+	Wait Until Page Loaded
+	Title Should Be		Check-in
+	
+Open Special-Offers
+	Click Image	xpath=//div[@id='cjbanner']/table/tbody/tr/td[2]/a/img
+	Wait Until Page Loaded 
+	Title Should Be		Special offers
+	
+Select Help
+	Click Link	Help
+	Wait Until Page Loaded
+	Title Should Be		FAQ	
+
+Select Contact us
+	Click Image	xpath=//img[@alt='Contact Us']
+	Wait Until Page Loaded
+	Title Should Be		Contact Us
+
+Select legal
+	Click Image	xpath=//img[@alt='Legal']
+	Wait Until Page Loaded
+	Title Should Be		General conditions
+	
+Select Destinations
+	Click Link	Destinations
+	Wait Until Page Loaded
+	Title Should Be		CityJet Route Map
+	
+Select Flying Blue
+	Click Link	Flying Blue
+	Wait Until Page Loaded
+	Title Should Be		Flying Blue
+	
+Click Home Header Destination
+	Click Image	xpath=//div[@id='top']/a/img
+	Wait Until Page Loaded
+	
+
+==========CJ EBT=============
+
+Select From		[Arguments]  ${fromAirport}
+	Select From List	fromSelect	${fromAirport}
+	
+Select To		[Arguments]  ${toAirport}
+	Select From List	toSelect	${toAirport}
+
+Choose One-way
+	Select Radio Button		tripType	tripType2
+
+UnCheck flexible days
+	Unselect Checkbox		xpath=//input[@id='flexMyDates1']
+
+Check flexible days
+	Select Checkbox		xpath=//input[@id='flexMyDates1']	
+	
+Select Adult		[Arguments]  ${adult}
+	Select From List	adult	${adult}
+
+Select Child		[Arguments]  ${child}
+	Select From List	child	${child}
+	
+Select Infant		[Arguments]  ${infant}
+	Select From List	infant	${infant}
+	
+Submit Search
+    Click Button  submit
+	Wait Until Page Loaded
+
+Select Cheapest
+	Click Link	javascript:selectCheapestPrices()		and don't wait
+
+Select CardType		[Arguments]  ${cardType}
+	Select From List	cardType	${cardType}		
+
+Select Country		[Arguments]  ${country}
+	Select From List	country		${country}	
+
+#Adult1
+	
+Input FirstName	[Arguments]	${fname}
+		Input Text	passangers[0].name	${fname}
+		
+Input LastName	[Arguments]	${lname}
+		Input Text	passangers[0].lastName	${lname}
+		
+Input email	[Arguments]	${email}
+		Input Text	contacts[0].email	${email}
+
+Input contactPhone	[Arguments]	${cphone}
+		Input Text	contacts[0].phone	${cphone}
+
+Input mobile	[Arguments]	${mobile}
+		Input Text	contacts[0].mobile	${mobile}
+
+#Child2		
+		
+Input FirstName2	[Arguments]	${cfname}
+		Input Text	passangers[1].name	${cfname}
+		
+Input LastName2	[Arguments]	${clname}
+		Input Text	passangers[1].lastName	${clname}
+		
+Select dd		[Arguments]  ${dd}
+	Select From List	passangers1.dob.day	${dd}
+
+Select mm		[Arguments]  ${mm}
+	Select From List	passangers1.dob.month	${mm}
+
+Select yyyy		[Arguments]  ${yyyy}
+	Select From List	passangers1.dob.year	${yyyy}
+
+#Infant1
+
+Input FirstNameInfant	[Arguments]	${ifname}
+		Input Text	infants[0].name	${ifname}
+		
+Input LastNameInfant	[Arguments]	${ilname}
+		Input Text	infants[0].lastName	${ilname}
+
+Select ddinfant		[Arguments]  ${ddinfant}
+	Select From List	infants0.dob.day	${ddinfant}
+
+Select mminfant		[Arguments]  ${mminfant}
+	Select From List	infants0.dob.month	${mminfant}
+
+Select yyyyinfant	[Arguments]  ${yyyyinfant}
+	Select From List	infants0.dob.year	${yyyyinfant}
+	
+=== Calendar ===
+Click next month dep
+	Click Image		xpath=//img[@id='departureCal_nextMonthBtn']	and dont't wait
+		
+Click last date on dep calendar
+	Click Image		xpath=//table[@id='calDepartureDays']/tbody/tr[7]/td[7]/div		and don't wait
+		
+Click next month rtn
+	Click Image		xpath=//img[@id='returnCal_nextMonthBtn']	and dont't wait
+
+Click last date on return calendar
+	Click Image		xpath=//table[@id='calReturnDays']/tbody/tr[7]/td[7]/div	and dont't wait
+
+=== Flight Status ===
+	
+Open By Destination
+	Click Image		xpath=//img[@alt='By Destination']
+	Wait Until Page Loaded
+	
+Click search
+	Click Image		xpath=//input[@name='search']
+	Wait Until Page Loaded
+
+Choose Flight
+	Select Radio Button		selectedValue	flightsGroup
+	
+Click new search
+	Click Image		xpath=//input[@name='newSearch']
+	Wait Until Page Loaded
+	
+Input Flight Number		[Arguments]	${numb}
+	Input Text	flightNumber	${numb}
+	
+
+=== Flight Schedule ===
+
+Click Confirm
+	Click Image		xpath=//input[@name='confirm']
+	Wait Until Page Loaded
+
+Click ott-flight
+	Click Image		xpath=//td[7]/a/span
+	Wait Until Page Loaded
+	
+=== Flying Blue ===
+
+Input FBLogin	[Arguments]	${login}
+	Input Text	username	${login}
+
+Input FBPin	[Arguments]	${pin}
+	Input Password	pinCode		${pin}
+
+Submit log in
+	Click Button	submit
+	Wait Until Page Loaded
+
+Confirm Name
+	Page Should Contain		Mr FARAN KHAN
+
+Click Register
+	Click Image		xpath=//img[@alt='Register']

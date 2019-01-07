@@ -1,0 +1,16 @@
+*** Settings ***
+
+Documentation  CJ Flying Blue Register
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+CJ Flying Blue Register
+	
+	
+	Open CJ HP
+	Select Flying Blue
+	
+	
+	Click Home Header

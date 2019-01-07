@@ -1,0 +1,32 @@
+*** Settings ***
+
+Documentation  Test
+...			   
+Resource		common_resource.txt
+
+			
+*** Test Cases ***
+		:FOR	${i}	IN 	@{countries}
+		\   LOG	${i}
+		\	Open KL HP
+		\	Set Selenium Speed	1
+		\	Click Change country
+		\	Select Country    ${i}
+		\	Click Choose Country Select
+		#Select Language    English
+		\	Click Choose Language Select
+		\	Open EBT from HP
+		#Select From    Amsterdam - Schiphol (AMS)
+		\	Input To    AMS
+		\	Submit Search
+		# Select Flights
+		\	Detect Currency ebt14
+		\	Verify Continue Present
+		\	Select This Option
+		# Select Fares
+		\	Detect Currency ebt45
+		\	Verify Continue Present
+		\	Submit Search
+		# You Order
+		\	Verify Continue Present
+		\	Close Browser

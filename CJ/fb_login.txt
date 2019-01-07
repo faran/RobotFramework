@@ -1,0 +1,17 @@
+*** Settings ***
+
+Documentation  CJ Flying Blue Login
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+LIVE-FB
+	Test Setup
+	Open CJ HP
+	Select Flying Blue
+	Input FBLogin	2058018534
+	Input FBPin		5655
+	Submit log in
+	Confirm Name
+	Click Home Header

@@ -1,0 +1,25 @@
+*** Settings ***
+
+Documentation  This test case book a flight till payment detail page from CDG to AMS with All default options. This test has
+...            a workflow that is created using keywords from the html_resource file.
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+
+AF EBT
+	
+    Start Selenium Server
+		Open AF EBT
+		Input From	CDG
+		Input To	AMS
+		Submit Search
+		Submit Search
+		Submit Search
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+	Stop Selenium Server

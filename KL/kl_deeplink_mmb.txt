@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  KLM MMB Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+
+		[Tags]    DLINK
+		Test Setup
+		MMB

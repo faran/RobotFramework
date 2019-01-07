@@ -1,0 +1,16 @@
+*** Settings ***
+
+Documentation  
+...            The correct SUT specific resource
+...            is imported based on ${SUT} variable. SeleniumLibrary is also
+...            imported here so that no other file needs to import it.
+
+Resource       af_resource.txt
+Resource       klm_resources.txt
+Library        SeleniumLibrary
+
+
+*** Variables ***
+
+${SERVER}        af24.mobileaware.com
+${BROWSER}       googlechrome

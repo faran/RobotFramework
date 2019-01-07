@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  AF Cancel Check In Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+ICI CC
+		[Tags]    DLINK
+		Test Setup
+		CCI

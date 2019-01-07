@@ -1,0 +1,13 @@
+*** Settings ***
+
+Documentation  KLM ICI Checkin Deeplink
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+
+		[Tags]    DLINK
+		Test Setup
+		ICI

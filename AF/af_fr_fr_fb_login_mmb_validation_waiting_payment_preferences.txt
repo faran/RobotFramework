@@ -1,0 +1,41 @@
+﻿*** Settings ***
+
+Documentation  Waiting Payment MMB Verification Preferences Tab.
+...			   
+Resource       common_resource.txt
+
+			
+*** Test Cases ***
+MMB-Verification-Waiting-Payment
+		[Tags]	EBT
+		[Tags]	nightly
+		[Tags]	  Regression
+		Test Setup	
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language    Français
+		Click Choose Language
+				
+		Open FB from HP
+		Input FBLogin	2058018534
+		Input FBPin		5655
+		Submit log in
+		Click Home from header
+		
+		Open MMB from HP
+		Title Should Be		Mes réservations
+		Click View Bookings Details
+				
+		Click Preferences Tab
+		Title Should Be		Vos réservations en cours
+		Page Should Contain		 Sièges
+		Page Should Contain		 Repas
+		Page Should Contain		 Bagage
+		Verify Add Baggage Button
+		Click Other Reservations
+		Title Should Be		Mes réservations
+		
+
+		

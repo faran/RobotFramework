@@ -1,0 +1,54 @@
+*** Settings ***
+
+Documentation  Choosing FR_EN Booking a flight with pay by phone option with all default options
+...						   
+Resource       ../common_resource.txt
+
+
+*** Test Cases ***
+
+EBT pay by phone default options
+	
+			
+		Open AF HP
+		Click change country
+		Select Country		France
+		Click Choose Country
+		Select Language		English
+		Click Choose Language
+		
+		Open EBT from HP
+		
+		Input From	CDG
+		Input To	LHR
+		
+		Click next month dep
+		Click last date on dep calendar
+		
+		Click next month rtn
+		Click last date on return calendar
+		
+		#ebt1
+		Submit Search
+		
+		#ebt2
+		Submit Search
+		
+		#upsell
+		Submit Search
+		
+		#summary
+		Choose pay-by-phone
+		Submit Search
+		
+		#paxdetail
+		Input LastName	Blog
+		Input FirstName	John
+		Input telephone	090909009
+		Input email	Johh.blog@mobileaware.com
+		Check termsandcondition
+		Submit Search
+		
+		#click home and verify booking done
+		Click home-ebt9
+		

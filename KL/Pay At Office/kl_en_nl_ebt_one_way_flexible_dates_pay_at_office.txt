@@ -1,0 +1,45 @@
+*** Settings ***
+Documentation     KLM EBT - One Way Flexible Dates Pay At Office
+Resource          common_resource.txt
+
+*** Test Cases ***
+
+    [Tags]    QReg
+    ${random_numbers} =    Generate Random String    4    [NUMBERS]
+    Test Setup
+    Open KL HP
+    Click Change country
+    Select Country    Netherlands
+    Click Choose Country Select
+    Select Language    English
+    Click Choose Language Select
+    Open EBT from HP
+    Select From    Amsterdam - Schiphol (AMS)
+    Input To    AUA
+    Click next month dep
+    Click last date on dep calendar
+    # Click last date on return calendar
+    Select One-Way
+    # UnCheck flexible days
+    Select Economy
+    Submit Search
+    # Select Flights
+    Submit Search
+    # You Order
+    Submit Search
+    # Pax Detail Page
+	Input FirstName    Johnny	0
+    Input LastName    Shop	0
+    Select Title    Mr	0
+    Input email    farankhan@mobileaware.com
+    Input Confirm Email    farankhan@mobileaware.com
+    Input Tel Number    1234567890
+    Submit Search
+    # Payment Selection
+    Select PAO
+    Submit Search
+    # Review and book
+    Check termsandcondition
+    Submit Search
+    # Confirmation Page
+    Confirm Booking

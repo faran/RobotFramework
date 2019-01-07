@@ -1,0 +1,14 @@
+*** Settings ***
+
+Documentation  KLM Flight Status Deeplink 2 - By Flight Number
+...			   
+Resource       common_resource.txt
+
+
+	
+*** Test Cases ***
+FS
+		[Tags]    DLINK
+		[Tags]    nightly
+		Test Setup
+		FS-2

@@ -1,0 +1,32 @@
+﻿*** Settings ***
+
+Documentation  Flying blue login logut flow in china china
+...						   
+Resource       common_resource.txt
+
+
+*** Test Cases ***
+FB-CZ
+		Test Setup
+		[Tags]	nightly
+		Open AF HP
+		Click change country
+		Select Country		China
+		Click Choose Country
+		Click Choose Language
+		
+		Open FB from HP
+		Input FBLogin	2058018534
+		Input FBPin		5655
+		Submit log in
+		Page Should Contain		个人详情
+		Page Should Contain		蓝天飞行
+		Page Should Contain		预先旅客信息
+		Page Should Contain		付款详情
+		Page Should Contain		航班偏好
+		Page Should Contain		通讯偏好
+		Click Mileage Summary
+		Page Should Contain		Mr FARAN KHAN
+		Click Manage My Profile
+		Click Home from header
+		Click sign out

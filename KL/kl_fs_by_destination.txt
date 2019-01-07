@@ -1,0 +1,24 @@
+*** Settings ***
+
+Documentation  Flight Status by flight destination
+...						   
+Resource		common_resource.txt
+
+
+*** Test Cases ***
+AMS-JFK-AMS
+		[Tags]    nightly
+		Test Setup
+		Open KL HP
+		Open FI from HP
+		Open FS
+		Input Origin	AMS
+		Input Destination	JFK		
+		Submit Search
+		Click First flight Return
+		Verify flight status info
+		Page Should Contain		From:
+		Page Should Contain		Amsterdam (Schiphol)
+		Page Should Contain		To:
+		Page Should Contain		New York (John F. Kennedy International)
+		Submit Search
